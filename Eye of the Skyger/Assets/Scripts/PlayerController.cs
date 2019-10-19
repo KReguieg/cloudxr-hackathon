@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,13 +10,16 @@ public class PlayerController : MonoBehaviour
     float speed;
 
     public float acceleration = 0.5f, maxSpeed = 2f;
-    public float maxTiltAngle = 60f, tiltingSpeed = 1f;
+    public float maxRollAngle = 60f, maxPitchAngle = 40f, tiltingSpeed = 1f, tiltingNormalizationSpeed = 1f;
 
     public float newTargetPositionTreshold = 0.03f, targetPositionReachedTreshold = 0.03f;
 
     Vector3 currentPosition, targetPosition, direction;
 
     public GameObject visual;
+
+    public float cooldownDuration;
+    float cooldown;
 
     // Start is called before the first frame update
     void Awake()
@@ -43,32 +47,56 @@ public class PlayerController : MonoBehaviour
             if (speed < maxSpeed)
                 speed = Mathf.Clamp(speed + acceleration * Time.deltaTime, 0, maxSpeed);
 
-            direction = (targetPosition - currentPosition).normalized;
-            //Vector3 lookDirection = Vector3.RotateTowards(transform.forward, direction, maxTiltAngle * Mathf.Deg2Rad, 1);
+            direction = (targetPosition - currentPosition);
             
             Vector3 deltaPos = Vector3.MoveTowards(currentPosition, targetPosition, speed * Time.deltaTime);
 
-            //rigid.MoveRotation(Quaternion.RotateTowards(rigid.rotation, Quaternion.LookRotation(lookDirection), 
-            //    tiltingSpeed * Time.deltaTime));
 
-            //rigid.MovePosition(deltaPos);
+            rigid.AddForce(direction.normalized * 25);
 
-            rigid.AddForce(direction * 25);
-            
+            Rotation();
         }
         else
         {
             speed = Mathf.Clamp(speed - acceleration * Time.deltaTime, 0, maxSpeed);
             direction = Vector3.zero;
 
-            //rigid.MoveRotation(Quaternion.RotateTowards(rigid.rotation, Quaternion.identity, tiltingSpeed * Time.deltaTime));
+            rigid.MoveRotation(Quaternion.RotateTowards(rigid.rotation, Quaternion.identity, tiltingNormalizationSpeed * Time.deltaTime));
         }
 
-        Rotation();
+        if (cooldown > 0)
+            cooldown -= Time.deltaTime;        
+        else
+            CheckTargets();
+    }
+
+    private void CheckTargets()
+    {
+        if (GameManager.singleton.rocketTargets.Count > 0 && GameManager.singleton.rocketCount > 0)
+        {
+            FireRocketAt(GameManager.singleton.rocketTargets[0]);
+            GameManager.singleton.rocketTargets.RemoveAt(0);
+            cooldown = cooldownDuration;
+        }
+    }
+
+    private void FireRocketAt(Obstacle rocketTarget)
+    {
+        Rocket newRocket = Instantiate(GameManager.singleton.rocketPrefab, transform.position, Quaternion.identity);
+        newRocket.target = rocketTarget;
+        rocketTarget.homingRocket = newRocket;
     }
 
     void Rotation()
     {
+        if (direction.x != 0)
+        {
+            rigid.MoveRotation(Quaternion.RotateTowards(
+                rigid.rotation,
+                Quaternion.Euler(-direction.normalized.y * maxPitchAngle, 0, -direction.normalized.x * maxRollAngle),
+                tiltingSpeed * Time.deltaTime));
+        }
+
     }
 
 }

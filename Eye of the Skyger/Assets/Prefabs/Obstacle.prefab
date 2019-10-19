@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7048698251292741322}
   - component: {fileID: -2562662636304266638}
   - component: {fileID: -6544033583105694706}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Obstacle
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -85,6 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  gazeTime: 0
 --- !u!23 &-6544033583105694706
 MeshRenderer:
   m_ObjectHideFlags: 0

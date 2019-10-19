@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    public Obstacle[] obstaclePrefabs;
+    public GameObject[] obstaclePrefabs;
 
     public float spawnFrequency = 1f;
     public Vector2 maxSpawnBounds = new Vector3(1, 0.6f, 0), minSpawnBounds = Vector3.zero;
