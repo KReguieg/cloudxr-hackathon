@@ -7,7 +7,8 @@ public class ObstacleSpawner : MonoBehaviour
     public GameObject[] obstaclePrefabs;
     
     float spawnFrequency = 1f;
-    public Vector2 maxSpawnBounds = new Vector3(1, 0.6f, 0), minSpawnBounds = Vector3.zero;
+    //public Vector2 maxSpawnBounds = new Vector3(1, 0.6f, 0), minSpawnBounds = Vector3.zero;
+    public float minSpawnRadius = 0, maxSpawnRadius = 1;
 
     float timer;
 
@@ -41,15 +42,19 @@ public class ObstacleSpawner : MonoBehaviour
                 spawnDistance = overwriteSpawnDistance;
 
 
-            Vector3 spawnPos = new Vector3(
-                Random.Range(minSpawnBounds.x, maxSpawnBounds.x),
+
+            /*Vector3 spawnPos = new Vector3(
+                Random.Range(0, maxSpawnBounds.x),
                 Random.Range(minSpawnBounds.y, maxSpawnBounds.y),
-                spawnDistance);
-            
+                spawnDistance);            
             if (Random.Range(0, 2) == 0)
                 spawnPos = Vector3.Scale(spawnPos, new Vector3(-1, 1, 1));
             if (Random.Range(0, 2) == 0)
-                spawnPos = Vector3.Scale(spawnPos, new Vector3(1, -1, 1));
+                spawnPos = Vector3.Scale(spawnPos, new Vector3(1, -1, 1));*/
+
+            Vector3 spawnPos = Random.insideUnitCircle.normalized;
+            spawnPos *= Random.Range(minSpawnRadius, maxSpawnRadius);
+            spawnPos += new Vector3(0, 0, spawnDistance);
 
             Quaternion spawnRotation = Quaternion.identity;
 
@@ -62,7 +67,8 @@ public class ObstacleSpawner : MonoBehaviour
             if (randomScale)
             {
                 float desiredScale = Random.Range(minScale, maxScale);
-                newObject.transform.localScale = Vector3.Scale(newObject.transform.localScale, new Vector3(desiredScale, desiredScale, desiredScale));
+                newObject.transform.localScale = 
+                    Vector3.Scale(newObject.transform.localScale, new Vector3(desiredScale, desiredScale, desiredScale));
             }
 
             spawnFrequency = Random.Range(minSpawnFrequency, maxSpawnFrequency);
