@@ -232,7 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff2c8b01751bbd459d18226a8df682e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceMultiplier: 25
+  forceMultiplier: 42
   maxRollAngle: 80
   maxPitchAngle: 50
   tiltingSpeed: 200
