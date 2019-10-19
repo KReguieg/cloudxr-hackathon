@@ -6,14 +6,14 @@ public class Obstacle : MonoBehaviour
 {
     Rigidbody rigid;
 
-    public float speed = 180;
+    [Tooltip("Speed of Object in same direction as player - makes it slower")]
+    public float speed = 55;
 
     // Start is called before the first frame update
     void Awake()
     {
-        Debug.Log("hello");
         rigid = GetComponent<Rigidbody>();
-        rigid.velocity = new Vector3(0, 0, -speed);
+        rigid.velocity = new Vector3(0, 0, -GameManager.singleton.playerSpeed + speed);
     }
 
     // Update is called once per frame
