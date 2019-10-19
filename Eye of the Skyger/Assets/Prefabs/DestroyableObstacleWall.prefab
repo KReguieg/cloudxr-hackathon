@@ -9197,9 +9197,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5888ebeed364618bbf9bab00dc2c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 10
-  objRows: 3
+  size: 2.5
+  objRows: 1
   objCols: 3
+  prefabToSpawn: {fileID: 1711362145987164996, guid: 2f3e7967ed1d97343ba001a03e1a8fad,
+    type: 3}
 --- !u!1 &8385627644027862143
 GameObject:
   m_ObjectHideFlags: 0

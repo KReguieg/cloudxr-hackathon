@@ -956,10 +956,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstaclePrefabs:
   - {fileID: 8302136039586691905, guid: be4724d3dfeb24d0c81c27fe13c0ef29, type: 3}
-  spawnFrequency: 1
   maxSpawnBounds: {x: 1, y: 0.6}
   minSpawnBounds: {x: 0, y: 0}
   randomRotationAroundYAxis: 0
+  randomRotationAroundXAxis: 0
+  randomScale: 0
+  minScale: 1
+  maxScale: 1
+  minSpawnFrequency: 1
+  maxSpawnFrequency: 1
+  overwriteSpawnDistance: -88.31
 --- !u!114 &1974726310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -967,7 +973,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1974726307}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 28a79089240c99a47948ba4b110cef44, type: 3}
   m_Name: 
@@ -975,10 +981,16 @@ MonoBehaviour:
   obstaclePrefabs:
   - {fileID: 2751051967461326988, guid: 0e269a8607af25042a3a8b0685f27abd, type: 3}
   - {fileID: 2751051967461326988, guid: 353664633cb593444b89212ab81c21fc, type: 3}
-  spawnFrequency: 1
   maxSpawnBounds: {x: 150, y: 100}
   minSpawnBounds: {x: 50, y: 40}
   randomRotationAroundYAxis: 1
+  randomRotationAroundXAxis: 0
+  randomScale: 0
+  minScale: 0
+  maxScale: 0
+  minSpawnFrequency: 0
+  maxSpawnFrequency: 0
+  overwriteSpawnDistance: -1
 --- !u!1001 &6214442246315099636
 PrefabInstance:
   m_ObjectHideFlags: 0
