@@ -8,9 +8,9 @@ public class PlayerController : MonoBehaviour
 
     float speed;
 
-    public float acceleration = 0.5f, maxSpeed = 2f;
+    public float acceleration = 0.5f, maxSpeed = 2f, maxTiltAngle = 60f;
 
-    Vector3 currentPosition, targetPosition;
+    Vector3 currentPosition, targetPosition, direction;
 
     // Start is called before the first frame update
     void Awake()
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
             rigid.MovePosition(deltaPos);
         }
         else
-            speed = 0;
+            speed = Mathf.Clamp(speed - acceleration * Time.deltaTime, 0, maxSpeed); ;
     }
 
 

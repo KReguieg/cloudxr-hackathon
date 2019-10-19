@@ -12,7 +12,6 @@ public class Obstacle : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        Debug.Log("hello");
         rigid = GetComponent<Rigidbody>();
         rigid.velocity = new Vector3(0, 0, -GameManager.singleton.playerSpeed + speed);
     }
