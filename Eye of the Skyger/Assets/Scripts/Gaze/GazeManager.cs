@@ -11,6 +11,7 @@ public class GazeManager : MonoBehaviour
     private readonly GazeIndex[] GazePriority = new GazeIndex[] { GazeIndex.COMBINE, GazeIndex.LEFT, GazeIndex.RIGHT };
     private static EyeData eyeData = new EyeData();
     private bool eye_callback_registered;
+    [SerializeField] LayerMask layer;
 
     [SerializeField] public ObjectToGaze[] gazeables;
     public int t;
@@ -45,12 +46,12 @@ public class GazeManager : MonoBehaviour
         foreach (GazeIndex index in GazePriority)
         {
             Ray GazeRay;
-            int dart_board_layer_id = LayerMask.NameToLayer("Default");
+            
             bool eye_focus;
             if (eye_callback_registered)
-                eye_focus = SRanipal_Eye.Focus(index, out GazeRay, out FocusInfo, 0, MaxDistance, (1 << dart_board_layer_id), eyeData);
+                eye_focus = SRanipal_Eye.Focus(index, out GazeRay, out FocusInfo, 0, MaxDistance, layer, eyeData);
             else
-                eye_focus = SRanipal_Eye.Focus(index, out GazeRay, out FocusInfo, 0, MaxDistance, (1 << dart_board_layer_id));
+                eye_focus = SRanipal_Eye.Focus(index, out GazeRay, out FocusInfo, 0, MaxDistance, layer);
 
             if (eye_focus)
             {

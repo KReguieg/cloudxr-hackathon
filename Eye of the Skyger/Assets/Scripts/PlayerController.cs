@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     public float maxTiltAngle = 60f, tiltingSpeed = 1f;
 
     Vector3 currentPosition, targetPosition, direction;
-
+    [SerializeField] Transform targetTransfrom;
     // Start is called before the first frame update
     void Awake()
     {
@@ -25,7 +25,8 @@ public class PlayerController : MonoBehaviour
         currentPosition = rigid.position;
         Vector3 newTargetPosition =
             Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1.1f));
-
+        if(targetTransfrom != null)
+            newTargetPosition = targetTransfrom.position;
         // assign new target position if the delta is big enough
         if (Vector3.Distance(targetPosition, newTargetPosition) > 0.03f)
         {
