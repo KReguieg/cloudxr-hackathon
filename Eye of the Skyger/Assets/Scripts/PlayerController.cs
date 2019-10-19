@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
 
     public float newTargetPositionTreshold = 0.03f, targetPositionReachedTreshold = 0.03f;
 
-    
 
     Vector3 currentPosition, targetPosition, direction;
 
@@ -28,16 +27,26 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        rigid = GetComponent<Rigidbody>();     
+        rigid = GetComponent<Rigidbody>();
     }
+
 
     // Player Input
     void Update()
     {
+        // fly away at gameOver
+        if (GameManager.singleton.gameOver)
+        {
+            rigid.velocity = new Vector3(0,0, GameManager.singleton.playerSpeed);
+            direction = Vector3.zero;
+            rigid.MoveRotation(Quaternion.RotateTowards(rigid.rotation, Quaternion.identity, tiltingNormalizationSpeed * Time.deltaTime));
+            return;
+        }
+
         currentPosition = rigid.position;
         Vector3 newTargetPosition =
             Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1.1f));
-        if(target != null)
+        if (target != null)
             newTargetPosition = target.position;
 
         // assign new target position if the delta is big enough
@@ -49,17 +58,13 @@ public class PlayerController : MonoBehaviour
         // move towards target position if delta is big enough
         if (Vector3.Distance(targetPosition, currentPosition) > targetPositionReachedTreshold)
         {
-            // accelerate
-            //if (speed < maxSpeed)
-            //    speed = Mathf.Clamp(speed + acceleration * Time.deltaTime, 0, maxSpeed);
 
             direction = (targetPosition - currentPosition);
-            
+
             //Vector3 deltaPos = Vector3.MoveTowards(currentPosition, targetPosition, speed * Time.deltaTime);
 
 
             rigid.AddForce(direction * forceMultiplier);
-
             Rotation();
         }
         else
@@ -71,7 +76,7 @@ public class PlayerController : MonoBehaviour
         }
 
         if (cooldown > 0)
-            cooldown -= Time.deltaTime;        
+            cooldown -= Time.deltaTime;
         else
             CheckTargets();
     }
@@ -103,6 +108,19 @@ public class PlayerController : MonoBehaviour
                 tiltingSpeed * Time.deltaTime));
         }
 
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        ScoreManager.Instance.IncreaseMultiplier();
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Obstacle")
+        {
+            ScoreManager.Instance.ResetMultiplier();
+        }
     }
 
 }
