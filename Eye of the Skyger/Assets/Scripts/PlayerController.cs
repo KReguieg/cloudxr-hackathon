@@ -8,7 +8,8 @@ public class PlayerController : MonoBehaviour
 
     float speed;
 
-    public float acceleration = 0.5f, maxSpeed = 2f, maxTiltAngle = 60f;
+    public float acceleration = 0.5f, maxSpeed = 2f;
+    public float maxTiltAngle = 60f, tiltingSpeed = 1f;
 
     Vector3 currentPosition, targetPosition, direction;
 
@@ -34,15 +35,28 @@ public class PlayerController : MonoBehaviour
         // move towards target position if delta is big enough
         if (Vector3.Distance(targetPosition, currentPosition) > 0.03f)
         {
+            // accelerate
             if (speed < maxSpeed)
                 speed = Mathf.Clamp(speed + acceleration * Time.deltaTime, 0, maxSpeed);
 
-            Vector3 deltaPos = Vector3.MoveTowards(currentPosition, targetPosition, speed * Time.deltaTime);
+            direction = (targetPosition - currentPosition).normalized;
+            Vector3 lookDirection = Vector3.RotateTowards(transform.forward, direction, maxTiltAngle * Mathf.Deg2Rad, 1);
             
+
+            Vector3 deltaPos = Vector3.MoveTowards(currentPosition, targetPosition, speed * Time.deltaTime);
+
+            rigid.MoveRotation(Quaternion.RotateTowards(rigid.rotation, Quaternion.LookRotation(lookDirection), 
+                tiltingSpeed * Time.deltaTime));
+
             rigid.MovePosition(deltaPos);
+            
         }
         else
-            speed = Mathf.Clamp(speed - acceleration * Time.deltaTime, 0, maxSpeed); ;
+        {
+            speed = Mathf.Clamp(speed - acceleration * Time.deltaTime, 0, maxSpeed);
+
+            rigid.MoveRotation(Quaternion.RotateTowards(rigid.rotation, Quaternion.identity, tiltingSpeed * Time.deltaTime));
+        }
     }
 
 
