@@ -7,7 +7,7 @@ public class SpawnCubes : MonoBehaviour
     [SerializeField] private float size = 10f;
     [SerializeField] private int objRows;
     [SerializeField] private int objCols;
-    [SerializeField] private GameObject prefabToSpawn;
+    [SerializeField] private GameObject[] prefabToSpawn;
     private float offset;
 
     private Vector3[] axis = new Vector3[]{Vector3.right, Vector3.up, Vector3.forward};
@@ -22,7 +22,7 @@ public class SpawnCubes : MonoBehaviour
             for (int y = 0; y < objCols; y++)
             {
                 var position = new Vector3(transform.position.x + offset * x, transform.position.y + offset * y);
-                var g = Instantiate(prefabToSpawn, position, Quaternion.identity);
+                var g = Instantiate(prefabToSpawn[Random.Range(0, prefabToSpawn.Length)], position, Quaternion.identity);
                 g.transform.Rotate(axis[Random.Range(0, axis.Length)], rotations[(Random.Range(0, rotations.Length))]);
                 g.transform.localScale = Vector3.one * size;
                 g.transform.parent = transform;
