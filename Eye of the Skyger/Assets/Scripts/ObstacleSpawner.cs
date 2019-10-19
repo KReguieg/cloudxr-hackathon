@@ -22,12 +22,22 @@ public class ObstacleSpawner : MonoBehaviour
     public float maxSpawnFrequency;
 
     public float overwriteSpawnDistance = -1;
-    
+
+    public bool disableOnGameOver = true;
+    [HideInInspector]
+    public bool spawning = true;
+
+
+    private void Start()
+    {
+        if (disableOnGameOver)
+            GameManager.singleton.StopSpawnersEvent.AddListener(StopSpawning);
+    }
 
     // Start is called before the first frame update
-    void Start()
+    void StopSpawning()
     {
-        
+        spawning = false;
     }
 
     // Update is called once per frame
@@ -35,22 +45,11 @@ public class ObstacleSpawner : MonoBehaviour
     {
         timer += Time.deltaTime;
         
-        if (timer >= spawnFrequency)
+        if (timer >= spawnFrequency && spawning)
         {
             float spawnDistance = GameManager.singleton.spawnDistance;
             if (overwriteSpawnDistance > 0)
                 spawnDistance = overwriteSpawnDistance;
-
-
-
-            /*Vector3 spawnPos = new Vector3(
-                Random.Range(0, maxSpawnBounds.x),
-                Random.Range(minSpawnBounds.y, maxSpawnBounds.y),
-                spawnDistance);            
-            if (Random.Range(0, 2) == 0)
-                spawnPos = Vector3.Scale(spawnPos, new Vector3(-1, 1, 1));
-            if (Random.Range(0, 2) == 0)
-                spawnPos = Vector3.Scale(spawnPos, new Vector3(1, -1, 1));*/
 
             Vector3 spawnPos = Random.insideUnitCircle.normalized;
             spawnPos *= Random.Range(minSpawnRadius, maxSpawnRadius);
