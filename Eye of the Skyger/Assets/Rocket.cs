@@ -11,6 +11,9 @@ public class Rocket : MonoBehaviour
 
     public float acceleration = 1;
     float speed = 0;
+    [SerializeField] private GameObject explosionEffect;
+    [SerializeField] private float blastRadius;
+    [SerializeField] private float explosionForce;
 
     // Start is called before the first frame update
     void Awake()
@@ -33,19 +36,25 @@ public class Rocket : MonoBehaviour
     {
         if (collision.collider.CompareTag("Obstacle"))
         {
-            SpawnExplosion();
-            Destroy(collision.collider.gameObject);
+            Explode();
+            //Destroy(collision.collider.gameObject);
             Destroy(gameObject);
         }
     }
 
-    private void SpawnExplosion()
+    private void Explode()
     {
-    }
+        Instantiate(explosionEffect, transform.position, transform.rotation);
 
-    /*private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawLine(transform.position, target.transform.position);
-    }*/
+        Collider[] nearbyObjectsToMove = Physics.OverlapSphere(transform.position, blastRadius);
+
+        foreach (var nearbyObject in nearbyObjectsToMove)
+        {
+            Rigidbody rb = nearbyObject.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.AddExplosionForce(explosionForce, transform.position, blastRadius);
+            }
+        }
+    }
 }
