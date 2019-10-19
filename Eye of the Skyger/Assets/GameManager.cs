@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager singleton;
+
+    [Tooltip("Simulated Player Speed in m/s")]
+    public float playerSpeed = 55.5f;
+
+    [Tooltip("Distance of spawned objects (hidden by fog) to camera")]
+    public float spawnDistance = 400f;
+
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        singleton = this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

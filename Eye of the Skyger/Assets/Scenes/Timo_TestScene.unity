@@ -417,6 +417,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba95162d6e550aa4fbcc5517d6854764, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSpeed: 55.5
+  spawnDistance: 400
 --- !u!4 &968806746
 Transform:
   m_ObjectHideFlags: 0
@@ -447,7 +449,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &1253660520
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -544,6 +546,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff2c8b01751bbd459d18226a8df682e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  acceleration: 10
+  maxSpeed: 5
 --- !u!54 &1422599215
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -558,7 +562,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!136 &1422599216
 CapsuleCollider:
@@ -591,7 +595,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 260f8a1e98bb6b141b6393d87e417378, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -735,6 +739,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1974726308}
   - component: {fileID: 1974726309}
+  - component: {fileID: 1974726310}
   m_Layer: 0
   m_Name: World
   m_TagString: Untagged
@@ -770,6 +775,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: -2562662636304266638, guid: e941b5bb4cad0d64f9f0c44bd240e4a3,
     type: 3}
-  spawnFrequency: 2
-  spawnDistance: 200
-  spawnBounds: {x: 1, y: 0.6}
+  spawnFrequency: 1
+  maxSpawnBounds: {x: 1, y: 0.6}
+  minSpawnBounds: {x: 0, y: 0}
+--- !u!114 &1974726310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974726307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a79089240c99a47948ba4b110cef44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefab: {fileID: 5956368980448009424, guid: 0e269a8607af25042a3a8b0685f27abd,
+    type: 3}
+  spawnFrequency: 1
+  maxSpawnBounds: {x: 150, y: 100}
+  minSpawnBounds: {x: 50, y: 40}
