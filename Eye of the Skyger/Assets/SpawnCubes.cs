@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnCubes : MonoBehaviour
 {
+    [SerializeField] private float positionOffset = 0.1f;
     [SerializeField] private float size = 10f;
     [SerializeField] private int objRows;
     [SerializeField] private int objCols;
@@ -16,7 +17,7 @@ public class SpawnCubes : MonoBehaviour
 
     private void Awake() {
         objCols = Random.Range(6, 15);
-        offset = size + 0.1f;
+        offset = size + positionOffset;
         for (int x = 0; x < objRows; x++)
         {
             for (int y = 0; y < objCols; y++)
