@@ -9200,8 +9200,9 @@ MonoBehaviour:
   size: 2.5
   objRows: 1
   objCols: 3
-  prefabToSpawn: {fileID: 1711362145987164996, guid: 2f3e7967ed1d97343ba001a03e1a8fad,
-    type: 3}
+  prefabToSpawn:
+  - {fileID: 1711362145987164996, guid: 2f3e7967ed1d97343ba001a03e1a8fad, type: 3}
+  - {fileID: 8228146673407567683, guid: ebf98678b22d24e06b4fe62f1e47a23e, type: 3}
 --- !u!1 &8385627644027862143
 GameObject:
   m_ObjectHideFlags: 0
