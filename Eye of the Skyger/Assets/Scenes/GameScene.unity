@@ -875,6 +875,7 @@ MonoBehaviour:
   maxSpawnBounds: {x: 150, y: 100}
   minSpawnBounds: {x: 50, y: 40}
   randomRotationAroundYAxis: 1
+  randomRotationAroundXAxis: 0
 --- !u!114 &1064967412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -893,6 +894,7 @@ MonoBehaviour:
   maxSpawnBounds: {x: 1, y: 0.6}
   minSpawnBounds: {x: 0, y: 0}
   randomRotationAroundYAxis: 0
+  randomRotationAroundXAxis: 0
 --- !u!4 &1064967413
 Transform:
   m_ObjectHideFlags: 0
