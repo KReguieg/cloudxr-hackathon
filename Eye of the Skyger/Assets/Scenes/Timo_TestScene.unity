@@ -845,7 +845,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefabs:
-  - {fileID: -2562662636304266638, guid: e941b5bb4cad0d64f9f0c44bd240e4a3, type: 3}
+  - {fileID: -2562662636304266638, guid: ea560cc02c62f144789b3c98cea82c77, type: 3}
   spawnFrequency: 1
   maxSpawnBounds: {x: 1, y: 0.6}
   minSpawnBounds: {x: 0, y: 0}
@@ -880,6 +880,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 6214442247711220185, guid: fd5af5acf593c4647821fbbcbcf1d3ec,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6214442247711220167, guid: fd5af5acf593c4647821fbbcbcf1d3ec,
         type: 3}
@@ -920,6 +925,11 @@ PrefabInstance:
         type: 3}
       propertyPath: tiltingSpeed
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6214442247711220186, guid: fd5af5acf593c4647821fbbcbcf1d3ec,
+        type: 3}
+      propertyPath: acceleration
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd5af5acf593c4647821fbbcbcf1d3ec, type: 3}
