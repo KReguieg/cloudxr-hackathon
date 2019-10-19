@@ -4,20 +4,8 @@ using UnityEngine;
 
 public class ObjectToGaze : MonoBehaviour, IGazeable
 {
-    public void GazeAt(Vector3 position)
+    public virtual void GazeAt(Vector3 position)
     {
         transform.position = position;
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
