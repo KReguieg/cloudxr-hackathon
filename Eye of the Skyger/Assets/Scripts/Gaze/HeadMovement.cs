@@ -17,10 +17,11 @@ public class HeadMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 look = transform.forward;
-        look.y = 0;
-        float anglex = Vector3.SignedAngle(look, Vector3.forward, Vector3.up);
-        controlledTransfrom.position += Vector3.right * angleSpeedCurve.Evaluate(-anglex) * Time.deltaTime;
+        Vector3 look = transform.up;
+        look.z = 0;
+        float anglex = Vector3.SignedAngle(look, Vector3.up, Vector3.forward);
+        controlledTransfrom.position += Vector3.right * angleSpeedCurve.Evaluate(anglex) * Time.deltaTime;
+
         look = transform.forward;
         look.x = 0;
         float angley = Vector3.SignedAngle(look, Vector3.forward, Vector3.right);

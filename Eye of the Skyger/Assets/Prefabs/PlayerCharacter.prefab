@@ -232,15 +232,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff2c8b01751bbd459d18226a8df682e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 5
-  maxSpeed: 5
+  forceMultiplier: 42.7
   maxRollAngle: 80
   maxPitchAngle: 50
-  tiltingSpeed: 200
+  tiltingSpeed: 150
   tiltingNormalizationSpeed: 100
   newTargetPositionTreshold: 0.03
   targetPositionReachedTreshold: 0.1
   visual: {fileID: 7427176493598192603}
+  target: {fileID: 0}
   cooldownDuration: 0
 --- !u!1 &7365314536410612082
 GameObject:
