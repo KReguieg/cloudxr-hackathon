@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        ScoreManager.Instance.IncreaseMultiplier();
+        ScoreManager.Instance?.IncreaseMultiplier();
     }
 
     private void OnCollisionEnter(Collision other)
