@@ -6,8 +6,8 @@ public class ObstacleSpawner : MonoBehaviour
 {
     public Obstacle obstaclePrefab;
 
-    public float spawnFrequency = 1f, spawnDistance = 200;
-    public Vector2 spawnBounds = new Vector3(10, 7, 0);
+    public float spawnFrequency = 1f;
+    public Vector2 maxSpawnBounds = new Vector3(1, 0.6f, 0), minSpawnBounds = Vector3.zero;
 
     float timer;
 
@@ -24,10 +24,17 @@ public class ObstacleSpawner : MonoBehaviour
         
         if (timer >= spawnFrequency)
         {
-            Instantiate(obstaclePrefab, new Vector3(
-                Random.Range(-spawnBounds.x, spawnBounds.x), 
-                Random.Range(-spawnBounds.y, spawnBounds.y), 
-                spawnDistance), Quaternion.identity, transform);
+            Vector3 spawnPos = new Vector3(
+                Random.Range(minSpawnBounds.x, maxSpawnBounds.x),
+                Random.Range(minSpawnBounds.y, maxSpawnBounds.y),
+                GameManager.singleton.spawnDistance);
+            
+            if (Random.Range(0, 2) == 0)
+                spawnPos = Vector3.Scale(spawnPos, new Vector3(-1, 1, 1));
+            if (Random.Range(0, 2) == 0)
+                spawnPos = Vector3.Scale(spawnPos, new Vector3(1, -1, 1));
+
+            Instantiate(obstaclePrefab, spawnPos, Quaternion.identity, transform);
 
             timer -= spawnFrequency;
         }
