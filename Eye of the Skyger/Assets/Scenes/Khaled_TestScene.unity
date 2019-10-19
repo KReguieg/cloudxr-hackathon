@@ -719,7 +719,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 70
-  spawnDistance: 400
+  spawnDistance: -400
   rocketTargets: []
   targetTime: 0
   rocketCount: 100
@@ -956,8 +956,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstaclePrefabs:
   - {fileID: 8302136039586691905, guid: be4724d3dfeb24d0c81c27fe13c0ef29, type: 3}
-  maxSpawnBounds: {x: 1, y: 0.6}
-  minSpawnBounds: {x: 0, y: 0}
+  minSpawnRadius: 0
+  maxSpawnRadius: 1
   randomRotationAroundYAxis: 0
   randomRotationAroundXAxis: 0
   randomScale: 0
@@ -981,8 +981,8 @@ MonoBehaviour:
   obstaclePrefabs:
   - {fileID: 2751051967461326988, guid: 0e269a8607af25042a3a8b0685f27abd, type: 3}
   - {fileID: 2751051967461326988, guid: 353664633cb593444b89212ab81c21fc, type: 3}
-  maxSpawnBounds: {x: 150, y: 100}
-  minSpawnBounds: {x: 50, y: 40}
+  minSpawnRadius: 0
+  maxSpawnRadius: 1
   randomRotationAroundYAxis: 1
   randomRotationAroundXAxis: 0
   randomScale: 0
