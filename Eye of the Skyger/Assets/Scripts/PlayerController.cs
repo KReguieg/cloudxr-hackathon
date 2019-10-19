@@ -44,27 +44,31 @@ public class PlayerController : MonoBehaviour
                 speed = Mathf.Clamp(speed + acceleration * Time.deltaTime, 0, maxSpeed);
 
             direction = (targetPosition - currentPosition).normalized;
-            Vector3 lookDirection = Vector3.RotateTowards(transform.forward, direction, maxTiltAngle * Mathf.Deg2Rad, 1);
+            //Vector3 lookDirection = Vector3.RotateTowards(transform.forward, direction, maxTiltAngle * Mathf.Deg2Rad, 1);
             
             Vector3 deltaPos = Vector3.MoveTowards(currentPosition, targetPosition, speed * Time.deltaTime);
 
-            rigid.MoveRotation(Quaternion.RotateTowards(rigid.rotation, Quaternion.LookRotation(lookDirection), 
-                tiltingSpeed * Time.deltaTime));
+            //rigid.MoveRotation(Quaternion.RotateTowards(rigid.rotation, Quaternion.LookRotation(lookDirection), 
+            //    tiltingSpeed * Time.deltaTime));
 
-            rigid.MovePosition(deltaPos);
+            //rigid.MovePosition(deltaPos);
+
+            rigid.AddForce(direction * 25);
             
         }
         else
         {
             speed = Mathf.Clamp(speed - acceleration * Time.deltaTime, 0, maxSpeed);
+            direction = Vector3.zero;
 
-            rigid.MoveRotation(Quaternion.RotateTowards(rigid.rotation, Quaternion.identity, tiltingSpeed * Time.deltaTime));
+            //rigid.MoveRotation(Quaternion.RotateTowards(rigid.rotation, Quaternion.identity, tiltingSpeed * Time.deltaTime));
         }
+
+        Rotation();
     }
 
     void Rotation()
     {
-
     }
 
 }
