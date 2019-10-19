@@ -10,7 +10,7 @@ public class MovingObject : MonoBehaviour
     public float speed = 55;
 
     // Start is called before the first frame update
-    void Awake()
+    void Start()
     {
         rigid = GetComponent<Rigidbody>();
         rigid.velocity = new Vector3(0, 0, -GameManager.singleton.playerSpeed + speed);
