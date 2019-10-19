@@ -14,7 +14,7 @@ public class GazeManager : MonoBehaviour
     [SerializeField] LayerMask layer;
 
     [SerializeField] public ObjectToGaze[] gazeables;
-    public int t;
+    
 
     // Start is called before the first frame update
     void Start()

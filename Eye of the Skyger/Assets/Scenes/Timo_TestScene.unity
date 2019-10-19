@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &88856897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,7 +244,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &113448519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -910,6 +910,62 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1974065045
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1974065046}
+  - component: {fileID: 1974065047}
+  m_Layer: 0
+  m_Name: CloudSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1974065046
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974065045}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1974726308}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1974065047
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974065045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a79089240c99a47948ba4b110cef44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefabs:
+  - {fileID: 2751051967461326988, guid: 0e269a8607af25042a3a8b0685f27abd, type: 3}
+  - {fileID: 2751051967461326988, guid: 353664633cb593444b89212ab81c21fc, type: 3}
+  maxSpawnBounds: {x: 200, y: 150}
+  minSpawnBounds: {x: 50, y: 40}
+  randomRotationAroundYAxis: 1
+  randomRotationAroundXAxis: 0
+  randomScale: 1
+  minScale: 1
+  maxScale: 2.5
+  minSpawnFrequency: 0
+  maxSpawnFrequency: 1
+  overwriteSpawnDistance: -1
 --- !u!1 &1974726307
 GameObject:
   m_ObjectHideFlags: 0
@@ -920,7 +976,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1974726308}
   - component: {fileID: 1974726309}
-  - component: {fileID: 1974726310}
   m_Layer: 0
   m_Name: World
   m_TagString: Untagged
@@ -938,7 +993,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1974065046}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -956,29 +1012,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   obstaclePrefabs:
   - {fileID: 2948559091666343470, guid: e941b5bb4cad0d64f9f0c44bd240e4a3, type: 3}
-  spawnFrequency: 1
-  maxSpawnBounds: {x: 1, y: 0.6}
+  maxSpawnBounds: {x: 25, y: 15}
   minSpawnBounds: {x: 0, y: 0}
-  randomRotationAroundYAxis: 0
---- !u!114 &1974726310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1974726307}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28a79089240c99a47948ba4b110cef44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstaclePrefabs:
-  - {fileID: 2751051967461326988, guid: 0e269a8607af25042a3a8b0685f27abd, type: 3}
-  - {fileID: 2751051967461326988, guid: 353664633cb593444b89212ab81c21fc, type: 3}
-  spawnFrequency: 1
-  maxSpawnBounds: {x: 150, y: 100}
-  minSpawnBounds: {x: 50, y: 40}
   randomRotationAroundYAxis: 1
+  randomRotationAroundXAxis: 1
+  randomScale: 1
+  minScale: 1
+  maxScale: 1.5
+  minSpawnFrequency: 1
+  maxSpawnFrequency: 3
+  overwriteSpawnDistance: -1
 --- !u!1001 &6214442246315099636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1045,6 +1088,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6214442247711220187, guid: fd5af5acf593c4647821fbbcbcf1d3ec,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6214442247711220187, guid: fd5af5acf593c4647821fbbcbcf1d3ec,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6214442247711220186, guid: fd5af5acf593c4647821fbbcbcf1d3ec,
         type: 3}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7349308051962326655}
   - component: {fileID: 4451495480136169995}
   - component: {fileID: 6257722218750196608}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Visual (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 1254242998234436635}
   - component: {fileID: 562466485751120489}
   - component: {fileID: 5166144486799878635}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Visual (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 6214442247711220164}
   - component: {fileID: 6214442247711220187}
   - component: {fileID: 6214442247711220186}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: PlayerCharacter
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -232,8 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff2c8b01751bbd459d18226a8df682e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  acceleration: 5
-  maxSpeed: 5
+  forceMultiplier: 42
   maxRollAngle: 80
   maxPitchAngle: 50
   tiltingSpeed: 200
@@ -241,6 +240,7 @@ MonoBehaviour:
   newTargetPositionTreshold: 0.03
   targetPositionReachedTreshold: 0.1
   visual: {fileID: 7427176493598192603}
+  target: {fileID: 0}
   cooldownDuration: 0
 --- !u!1 &7365314536410612082
 GameObject:
@@ -253,7 +253,7 @@ GameObject:
   - component: {fileID: 3127572235095325246}
   - component: {fileID: 4758457967236981869}
   - component: {fileID: 6830948717163273351}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Visual (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 8005371211199843672}
   - component: {fileID: 5952225057515827081}
   - component: {fileID: 6765785322970976494}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -414,7 +414,7 @@ GameObject:
   - component: {fileID: 571864445737602652}
   - component: {fileID: 3362062397398534279}
   - component: {fileID: 570618248435072905}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Visual (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +496,7 @@ PrefabInstance:
     - target: {fileID: 6437204956091358133, guid: 8f7af51b671babc458d11702024dec66,
         type: 3}
       propertyPath: m_Layer
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8002564578433264038, guid: 8f7af51b671babc458d11702024dec66,
         type: 3}

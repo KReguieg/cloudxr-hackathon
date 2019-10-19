@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
             //Vector3 deltaPos = Vector3.MoveTowards(currentPosition, targetPosition, speed * Time.deltaTime);
 
 
-            rigid.AddForce(direction.normalized * forceMultiplier);
+            rigid.AddForce(direction * forceMultiplier);
 
             Rotation();
         }
