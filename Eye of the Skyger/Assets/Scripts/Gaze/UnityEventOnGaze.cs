@@ -26,12 +26,10 @@ public class UnityEventOnGaze : ObjectToGaze
     {
         if (Vector3.Distance(position, transform.position) <= triggerDistance)
         {
-            material.color = Color.red;
             LockOn = true;
         }
         else
         {
-            material.color = Color.grey;
             LockOn = false;
         }
         
