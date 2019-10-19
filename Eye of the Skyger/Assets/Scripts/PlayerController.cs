@@ -21,14 +21,14 @@ public class PlayerController : MonoBehaviour
     {
         currentPosition = rigid.position;
         Vector3 newTargetPosition =
-            Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 11));
+            Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1.1f));
 
-        if (Vector3.Distance(targetPosition, newTargetPosition) > 0.5f)
+        if (Vector3.Distance(targetPosition, newTargetPosition) > 0.03f)
         {
             targetPosition = newTargetPosition;
         }
 
-        if (Vector3.Distance(targetPosition, currentPosition) > 0.5f)
+        if (Vector3.Distance(targetPosition, currentPosition) > 0.03f)
         {
             rigid.MovePosition(targetPosition);
             //rigid.AddForce(targetPosition - currentPosition, ForceMode.Acceleration);
