@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     public float newTargetPositionTreshold = 0.03f, targetPositionReachedTreshold = 0.03f;
 
-    
+
 
     Vector3 currentPosition, targetPosition, direction;
 
@@ -28,7 +28,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        rigid = GetComponent<Rigidbody>();     
+        rigid = GetComponent<Rigidbody>();
     }
 
     // Player Input
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
         currentPosition = rigid.position;
         Vector3 newTargetPosition =
             Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1.1f));
-        if(target != null)
+        if (target != null)
             newTargetPosition = target.position;
 
         // assign new target position if the delta is big enough
@@ -53,8 +53,9 @@ public class PlayerController : MonoBehaviour
             //if (speed < maxSpeed)
             //    speed = Mathf.Clamp(speed + acceleration * Time.deltaTime, 0, maxSpeed);
 
+
             direction = (targetPosition - currentPosition);
-            
+
             //Vector3 deltaPos = Vector3.MoveTowards(currentPosition, targetPosition, speed * Time.deltaTime);
 
 
@@ -71,7 +72,7 @@ public class PlayerController : MonoBehaviour
         }
 
         if (cooldown > 0)
-            cooldown -= Time.deltaTime;        
+            cooldown -= Time.deltaTime;
         else
             CheckTargets();
     }
@@ -103,6 +104,19 @@ public class PlayerController : MonoBehaviour
                 tiltingSpeed * Time.deltaTime));
         }
 
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        ScoreManager.Instance.IncreaseMultiplier();
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Obstacle")
+        {
+            ScoreManager.Instance.ResetMultiplier();
+        }
     }
 
 }
