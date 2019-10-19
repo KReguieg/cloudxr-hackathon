@@ -11,7 +11,11 @@ public class PlayerController : MonoBehaviour
     public float acceleration = 0.5f, maxSpeed = 2f;
     public float maxTiltAngle = 60f, tiltingSpeed = 1f;
 
+    public float newTargetPositionTreshold = 0.03f, targetPositionReachedTreshold = 0.03f;
+
     Vector3 currentPosition, targetPosition, direction;
+
+    public GameObject visual;
 
     // Start is called before the first frame update
     void Awake()
@@ -27,13 +31,13 @@ public class PlayerController : MonoBehaviour
             Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1.1f));
 
         // assign new target position if the delta is big enough
-        if (Vector3.Distance(targetPosition, newTargetPosition) > 0.03f)
+        if (Vector3.Distance(targetPosition, newTargetPosition) > newTargetPositionTreshold)
         {
             targetPosition = newTargetPosition;
         }
 
         // move towards target position if delta is big enough
-        if (Vector3.Distance(targetPosition, currentPosition) > 0.03f)
+        if (Vector3.Distance(targetPosition, currentPosition) > targetPositionReachedTreshold)
         {
             // accelerate
             if (speed < maxSpeed)
@@ -42,7 +46,6 @@ public class PlayerController : MonoBehaviour
             direction = (targetPosition - currentPosition).normalized;
             Vector3 lookDirection = Vector3.RotateTowards(transform.forward, direction, maxTiltAngle * Mathf.Deg2Rad, 1);
             
-
             Vector3 deltaPos = Vector3.MoveTowards(currentPosition, targetPosition, speed * Time.deltaTime);
 
             rigid.MoveRotation(Quaternion.RotateTowards(rigid.rotation, Quaternion.LookRotation(lookDirection), 
@@ -59,5 +62,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    void Rotation()
+    {
+
+    }
 
 }
