@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4508314774903964457}
   - component: {fileID: 8004251521100404840}
   - component: {fileID: 3163846700278969004}
+  - component: {fileID: -6760165771593316467}
   m_Layer: 0
   m_Name: Cloud 2
   m_TagString: Obstacle
@@ -97,6 +98,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &-6760165771593316467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2751051967461326988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a048c8a5e2e024fa3807d1ede6fd27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
 --- !u!1001 &1439910459557087013
 PrefabInstance:
   m_ObjectHideFlags: 0
