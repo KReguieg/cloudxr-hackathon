@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     Vector3 currentPosition, targetPosition, direction;
 
     public GameObject visual;
+    [SerializeField] Transform target;
 
     public float cooldownDuration;
     float cooldown;
@@ -33,7 +34,8 @@ public class PlayerController : MonoBehaviour
         currentPosition = rigid.position;
         Vector3 newTargetPosition =
             Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1.1f));
-
+        if(target != null)
+            newTargetPosition = target.position;
         // assign new target position if the delta is big enough
         if (Vector3.Distance(targetPosition, newTargetPosition) > newTargetPositionTreshold)
         {
