@@ -8,6 +8,7 @@ TagManager:
   - FxTemporaire
   - Obstacle
   - Collectible
+  - Cloud
   layers:
   - Default
   - TransparentFX
@@ -21,8 +22,8 @@ TagManager:
   - Collectible
   - Eyecontact
   - Rocket
-  - 
-  - 
+  - Player
+  - Cloud
   - 
   - 
   - 

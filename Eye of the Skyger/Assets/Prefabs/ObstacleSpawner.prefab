@@ -1,0 +1,189 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1187137992964441525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1187137992964441522}
+  - component: {fileID: 1187137992964441523}
+  m_Layer: 0
+  m_Name: ObstacleSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1187137992964441522
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187137992964441525}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1187137992966159488}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1187137992964441523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187137992964441525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a79089240c99a47948ba4b110cef44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefabs:
+  - {fileID: 2948559091666343470, guid: e941b5bb4cad0d64f9f0c44bd240e4a3, type: 3}
+  minSpawnRadius: 0
+  maxSpawnRadius: 25
+  randomRotationAroundYAxis: 1
+  randomRotationAroundXAxis: 1
+  randomScale: 1
+  minScale: 1
+  maxScale: 1.5
+  minSpawnFrequency: 1
+  maxSpawnFrequency: 3
+  overwriteSpawnDistance: 600
+--- !u!1 &1187137992966159491
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1187137992966159488}
+  - component: {fileID: 1187137992966159489}
+  - component: {fileID: 1926910262}
+  - component: {fileID: 1926910263}
+  - component: {fileID: 1926910264}
+  m_Layer: 0
+  m_Name: CloudSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1187137992966159488
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187137992966159491}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1187137992964441522}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1187137992966159489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187137992966159491}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a79089240c99a47948ba4b110cef44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefabs:
+  - {fileID: 7392014293178917590, guid: 6c20bf9537a890642bead16647a07409, type: 3}
+  minSpawnRadius: 130
+  maxSpawnRadius: 200
+  randomRotationAroundYAxis: 1
+  randomRotationAroundXAxis: 0
+  randomScale: 1
+  minScale: 1
+  maxScale: 2
+  minSpawnFrequency: 0
+  maxSpawnFrequency: 0.15
+  overwriteSpawnDistance: 700
+--- !u!114 &1926910262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187137992966159491}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a79089240c99a47948ba4b110cef44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefabs:
+  - {fileID: 2835827716979253543, guid: 8334aa23c1608b347ab29e293d6f7c19, type: 3}
+  minSpawnRadius: 0
+  maxSpawnRadius: 25
+  randomRotationAroundYAxis: 1
+  randomRotationAroundXAxis: 1
+  randomScale: 1
+  minScale: 1
+  maxScale: 10
+  minSpawnFrequency: 0
+  maxSpawnFrequency: 3
+  overwriteSpawnDistance: 1000
+--- !u!114 &1926910263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187137992966159491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a79089240c99a47948ba4b110cef44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefabs:
+  - {fileID: 2751051967461326988, guid: 0e269a8607af25042a3a8b0685f27abd, type: 3}
+  - {fileID: 2751051967461326988, guid: 353664633cb593444b89212ab81c21fc, type: 3}
+  minSpawnRadius: 475
+  maxSpawnRadius: 550
+  randomRotationAroundYAxis: 1
+  randomRotationAroundXAxis: 0
+  randomScale: 1
+  minScale: 7
+  maxScale: 10
+  minSpawnFrequency: 0
+  maxSpawnFrequency: 0.75
+  overwriteSpawnDistance: 700
+--- !u!114 &1926910264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187137992966159491}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a79089240c99a47948ba4b110cef44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefabs:
+  - {fileID: 7392014293178917590, guid: 6c20bf9537a890642bead16647a07409, type: 3}
+  minSpawnRadius: 100
+  maxSpawnRadius: 200
+  randomRotationAroundYAxis: 1
+  randomRotationAroundXAxis: 0
+  randomScale: 1
+  minScale: 3
+  maxScale: 20
+  minSpawnFrequency: 0
+  maxSpawnFrequency: 4
+  overwriteSpawnDistance: 700
