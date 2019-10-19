@@ -43,9 +43,9 @@ public class Rocket : MonoBehaviour
     {
     }
 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(transform.position, target.transform.position);
-    }
+    }*/
 }

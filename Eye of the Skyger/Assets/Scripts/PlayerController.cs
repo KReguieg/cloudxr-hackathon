@@ -7,12 +7,15 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody rigid;
 
-    float speed;
+    //float speed;
 
-    public float acceleration = 0.5f, maxSpeed = 2f;
+    //public float acceleration = 0.5f, maxSpeed = 2f;
+    public float forceMultiplier = 25f;
     public float maxRollAngle = 60f, maxPitchAngle = 40f, tiltingSpeed = 1f, tiltingNormalizationSpeed = 1f;
 
     public float newTargetPositionTreshold = 0.03f, targetPositionReachedTreshold = 0.03f;
+
+    
 
     Vector3 currentPosition, targetPosition, direction;
 
@@ -36,6 +39,7 @@ public class PlayerController : MonoBehaviour
             Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 1.1f));
         if(target != null)
             newTargetPosition = target.position;
+
         // assign new target position if the delta is big enough
         if (Vector3.Distance(targetPosition, newTargetPosition) > newTargetPositionTreshold)
         {
@@ -46,21 +50,21 @@ public class PlayerController : MonoBehaviour
         if (Vector3.Distance(targetPosition, currentPosition) > targetPositionReachedTreshold)
         {
             // accelerate
-            if (speed < maxSpeed)
-                speed = Mathf.Clamp(speed + acceleration * Time.deltaTime, 0, maxSpeed);
+            //if (speed < maxSpeed)
+            //    speed = Mathf.Clamp(speed + acceleration * Time.deltaTime, 0, maxSpeed);
 
             direction = (targetPosition - currentPosition);
             
-            Vector3 deltaPos = Vector3.MoveTowards(currentPosition, targetPosition, speed * Time.deltaTime);
+            //Vector3 deltaPos = Vector3.MoveTowards(currentPosition, targetPosition, speed * Time.deltaTime);
 
 
-            rigid.AddForce(direction.normalized * 25);
+            rigid.AddForce(direction * forceMultiplier);
 
             Rotation();
         }
         else
         {
-            speed = Mathf.Clamp(speed - acceleration * Time.deltaTime, 0, maxSpeed);
+            //speed = Mathf.Clamp(speed - acceleration * Time.deltaTime, 0, maxSpeed);
             direction = Vector3.zero;
 
             rigid.MoveRotation(Quaternion.RotateTowards(rigid.rotation, Quaternion.identity, tiltingNormalizationSpeed * Time.deltaTime));
