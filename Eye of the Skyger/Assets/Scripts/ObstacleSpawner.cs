@@ -11,7 +11,7 @@ public class ObstacleSpawner : MonoBehaviour
 
     float timer;
 
-    public bool randomRotationAroundYAxis;
+    public bool randomRotationAroundYAxis, randomRotationAroundXAxis;
     
 
     // Start is called before the first frame update
@@ -40,7 +40,9 @@ public class ObstacleSpawner : MonoBehaviour
             Quaternion spawnRotation = Quaternion.identity;
 
             if (randomRotationAroundYAxis)
-                spawnRotation = Quaternion.AngleAxis(Random.Range(0, 360f), Vector3.up);
+                spawnRotation *= Quaternion.AngleAxis(Random.Range(0, 360f), Vector3.up);
+            if (randomRotationAroundXAxis)
+                spawnRotation *= Quaternion.AngleAxis(Random.Range(0, 360f), Vector3.forward);
 
             Instantiate(obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)], spawnPos, spawnRotation, transform);
 
