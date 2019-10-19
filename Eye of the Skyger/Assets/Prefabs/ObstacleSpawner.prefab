@@ -56,6 +56,8 @@ MonoBehaviour:
   minSpawnFrequency: 1
   maxSpawnFrequency: 3
   overwriteSpawnDistance: 600
+  disableOnGameOver: 1
+  spawning: 1
 --- !u!1 &1187137992966159491
 GameObject:
   m_ObjectHideFlags: 0
@@ -65,9 +67,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1187137992966159488}
+  - component: {fileID: 1926910263}
   - component: {fileID: 1187137992966159489}
   - component: {fileID: 1926910262}
-  - component: {fileID: 1926910263}
   - component: {fileID: 1926910264}
   m_Layer: 0
   m_Name: CloudSpawner
@@ -90,54 +92,6 @@ Transform:
   m_Father: {fileID: 1187137992964441522}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1187137992966159489
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187137992966159491}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28a79089240c99a47948ba4b110cef44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstaclePrefabs:
-  - {fileID: 7392014293178917590, guid: 6c20bf9537a890642bead16647a07409, type: 3}
-  minSpawnRadius: 130
-  maxSpawnRadius: 200
-  randomRotationAroundYAxis: 1
-  randomRotationAroundXAxis: 0
-  randomScale: 1
-  minScale: 1
-  maxScale: 2
-  minSpawnFrequency: 0
-  maxSpawnFrequency: 0.15
-  overwriteSpawnDistance: 700
---- !u!114 &1926910262
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1187137992966159491}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 28a79089240c99a47948ba4b110cef44, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstaclePrefabs:
-  - {fileID: 2835827716979253543, guid: 8334aa23c1608b347ab29e293d6f7c19, type: 3}
-  minSpawnRadius: 0
-  maxSpawnRadius: 25
-  randomRotationAroundYAxis: 1
-  randomRotationAroundXAxis: 1
-  randomScale: 1
-  minScale: 1
-  maxScale: 10
-  minSpawnFrequency: 0
-  maxSpawnFrequency: 3
-  overwriteSpawnDistance: 1000
 --- !u!114 &1926910263
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,6 +117,60 @@ MonoBehaviour:
   minSpawnFrequency: 0
   maxSpawnFrequency: 0.75
   overwriteSpawnDistance: 700
+  disableOnGameOver: 0
+  spawning: 1
+--- !u!114 &1187137992966159489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187137992966159491}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a79089240c99a47948ba4b110cef44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefabs:
+  - {fileID: 7392014293178917590, guid: 6c20bf9537a890642bead16647a07409, type: 3}
+  minSpawnRadius: 130
+  maxSpawnRadius: 200
+  randomRotationAroundYAxis: 1
+  randomRotationAroundXAxis: 0
+  randomScale: 1
+  minScale: 1
+  maxScale: 2
+  minSpawnFrequency: 0
+  maxSpawnFrequency: 0.15
+  overwriteSpawnDistance: 700
+  disableOnGameOver: 1
+  spawning: 1
+--- !u!114 &1926910262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187137992966159491}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28a79089240c99a47948ba4b110cef44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefabs:
+  - {fileID: 2835827716979253543, guid: 8334aa23c1608b347ab29e293d6f7c19, type: 3}
+  minSpawnRadius: 0
+  maxSpawnRadius: 25
+  randomRotationAroundYAxis: 1
+  randomRotationAroundXAxis: 1
+  randomScale: 1
+  minScale: 1
+  maxScale: 10
+  minSpawnFrequency: 0
+  maxSpawnFrequency: 3
+  overwriteSpawnDistance: 1000
+  disableOnGameOver: 1
+  spawning: 1
 --- !u!114 &1926910264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,3 +195,5 @@ MonoBehaviour:
   minSpawnFrequency: 0
   maxSpawnFrequency: 4
   overwriteSpawnDistance: 700
+  disableOnGameOver: 1
+  spawning: 1
