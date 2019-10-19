@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Rakete
+  m_Name: ExplosionSmoke
   m_Shader: {fileID: 4800000, guid: 9c6ece3d5ef8bb84db19471daaf6c788, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_LightmapFlags: 1
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 0699c622a4000e44798ccf9105d2f4fa, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -40,8 +40,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: d20ee09d9b8d19541975ae47d9ad5c5b, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 0.5, y: 0.5}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -61,15 +61,15 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0
+    - _Glossiness: 0.5
     - _GlossyReflections: 1
     - _LightSmoothness: 0
-    - _LightThreshold: 0.3
+    - _LightThreshold: 0.38
     - _MKEditorShowDetailBehavior: 0
     - _MKEditorShowDissolveBehavior: 0
-    - _MKEditorShowLightBehavior: 0
+    - _MKEditorShowLightBehavior: 1
     - _MKEditorShowMainBehavior: 1
-    - _MKEditorShowOutlineBehavior: 0
+    - _MKEditorShowOutlineBehavior: 1
     - _MKEditorShowReflectionBehavior: 0
     - _MKEditorShowRenderBehavior: 0
     - _MKEditorShowRimBehavior: 1
@@ -84,20 +84,20 @@ Material:
     - _Parallax: 0.02
     - _RimIntensity: 0.03
     - _RimSize: 3
-    - _RimSmoothness: 0.23
-    - _ShadowIntensity: 1
-    - _Shininess: 0.45
+    - _RimSmoothness: 0
+    - _ShadowIntensity: 1.47
+    - _Shininess: 0.08
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SpecularIntensity: 0.08
+    - _SpecularIntensity: 0
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 1, g: 0.7218555, b: 0.4669811, a: 1}
-    - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
-    - _HighlightColor: {r: 1, g: 0.93558055, b: 0.6933962, a: 1}
+    - _Color: {r: 0.05660379, g: 0.015752941, b: 0.015752941, a: 1}
+    - _EmissionColor: {r: 0.6037736, g: 0, b: 0.4509882, a: 1}
+    - _HighlightColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 1, g: 0.8787473, b: 0, a: 1}
-    - _ShadowColor: {r: 0.5188679, g: 0, b: 0, a: 1}
+    - _RimColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ShadowColor: {r: 0.4716981, g: 0, b: 0.37091002, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 0.5}
