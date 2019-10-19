@@ -19,7 +19,7 @@ public class UnityEventOnGaze : ObjectToGaze
 
     private void Start()
     {
-        material = GetComponent<MeshRenderer>().material;
+        
     }
 
     public override void GazeAt(Vector3 position)
@@ -53,7 +53,6 @@ public class UnityEventOnGaze : ObjectToGaze
         if (!oldLockOn && LockOn)
         {
             OnEnterTriggerdEvent?.Invoke();
-            material.color = Color.grey;
         }
 
         oldLockOn = LockOn;
