@@ -14,6 +14,8 @@ public class SpawnCubes : MonoBehaviour
     [SerializeField] private GameObject[] prefabToSpawn;
     [SerializeField] private Material targetMaterial;
     private float offset;
+    
+    public bool randomXRot = true, randomYRot = true;
 
     public float minScale = 1, maxScale = 3;
 
@@ -39,6 +41,7 @@ public class SpawnCubes : MonoBehaviour
                 //g.AddComponent<BoxCollider>();
                 g.AddComponent<Rigidbody>();
                 g.GetComponent<Rigidbody>().useGravity = false;
+                g.GetComponent<Rigidbody>().mass = 1000;
                 g.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
                 g.AddComponent<MovingObject>();
             }
@@ -46,8 +49,10 @@ public class SpawnCubes : MonoBehaviour
 
         Quaternion spawnRotation = Quaternion.identity;
 
-        spawnRotation *= Quaternion.AngleAxis(Random.Range(0, 360f), Vector3.up);
-        spawnRotation *= Quaternion.AngleAxis(Random.Range(0, 360f), Vector3.forward);
+        if (randomYRot)
+            spawnRotation *= Quaternion.AngleAxis(Random.Range(0, 360f), Vector3.up);
+        if (randomXRot)
+            spawnRotation *= Quaternion.AngleAxis(Random.Range(0, 360f), Vector3.forward);
         transform.rotation = spawnRotation;
 
         transform.localScale = Vector3.one * Random.Range(minScale, maxScale);
