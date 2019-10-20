@@ -119,6 +119,7 @@ public class PlayerController : MonoBehaviour
         rocketGO.transform.position = transform.position;
         Rocket rocket = rocketGO.GetComponent<Rocket>();
         rocket.target = enemy;
+        rocket.deepLock = true;
         Physics.IgnoreCollision(collider, rocketGO.GetComponentInChildren<Collider>());
     }
 

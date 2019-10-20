@@ -61,6 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d13b44d9be6278a4782fed57a45303dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startSpeed: 2
+  looseFocusAfterTime: 0.5
   target: {fileID: 0}
   forceMultiplier: 40
   acceleration: 20
@@ -68,6 +70,7 @@ MonoBehaviour:
     type: 3}
   blastRadius: 10
   explosionForce: 100
+  deepLock: 0
 --- !u!1 &3831626974914901886
 GameObject:
   m_ObjectHideFlags: 0
