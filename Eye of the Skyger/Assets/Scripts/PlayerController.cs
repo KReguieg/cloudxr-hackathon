@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    
     Rigidbody rigid;
 
     //float speed;
@@ -20,14 +21,17 @@ public class PlayerController : MonoBehaviour
 
     public GameObject visual;
     [SerializeField] Transform target;
+    [SerializeField] GameObject rocketPrefab;
 
     public float cooldownDuration;
     float cooldown;
+    new Collider collider;
 
     // Start is called before the first frame update
     void Awake()
     {
         rigid = GetComponent<Rigidbody>();
+        collider = GetComponentInChildren<Collider>();
     }
 
 
@@ -37,7 +41,7 @@ public class PlayerController : MonoBehaviour
         // fly away at gameOver
         if (GameManager.singleton.gameOver)
         {
-            rigid.velocity = new Vector3(0,0, GameManager.singleton.playerSpeed);
+            rigid.velocity = new Vector3(0, 0, GameManager.singleton.playerSpeed);
             direction = Vector3.zero;
             rigid.MoveRotation(Quaternion.RotateTowards(rigid.rotation, Quaternion.identity, tiltingNormalizationSpeed * Time.deltaTime));
             return;
@@ -94,7 +98,7 @@ public class PlayerController : MonoBehaviour
     private void FireRocketAt(Obstacle rocketTarget)
     {
         Rocket newRocket = Instantiate(GameManager.singleton.rocketPrefab, transform.position, Quaternion.identity);
-        newRocket.target = rocketTarget;
+        newRocket.target = rocketTarget.transform;
         rocketTarget.homingRocket = newRocket;
     }
 
@@ -107,7 +111,16 @@ public class PlayerController : MonoBehaviour
                 Quaternion.Euler(-direction.normalized.y * maxPitchAngle, 0, -direction.normalized.x * maxRollAngle),
                 tiltingSpeed * Time.deltaTime));
         }
+    }
 
+    public void Shoot(Transform enemy)
+    {
+        GameObject rocketGO = Instantiate(rocketPrefab);
+        rocketGO.transform.position = transform.position;
+        Rocket rocket = rocketGO.GetComponent<Rocket>();
+        rocket.target = enemy;
+        rocket.deepLock = true;
+        Physics.IgnoreCollision(collider, rocketGO.GetComponentInChildren<Collider>());
     }
 
     private void OnTriggerExit(Collider other)

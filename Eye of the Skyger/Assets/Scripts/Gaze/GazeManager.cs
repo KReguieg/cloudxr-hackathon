@@ -55,6 +55,7 @@ public class GazeManager : MonoBehaviour
 
             if (eye_focus)
             {
+                Gazeables.RemoveAll(item => item == null);
                 foreach(var gazeable in Gazeables)
                 {
                     gazeable.GazeAt(FocusInfo.point);

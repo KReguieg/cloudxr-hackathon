@@ -10,13 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4830097132436348694}
   - component: {fileID: 4867731214680489327}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Collider
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4830097132436348694
 Transform:
   m_ObjectHideFlags: 0
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 3095509622295036318}
   - component: {fileID: 4349574045750646764}
   - component: {fileID: 8945089832707128430}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Visual (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 6804796622256094202}
   - component: {fileID: 456096426363858830}
   - component: {fileID: 7873813832602709509}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Visual (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   - component: {fileID: 4358685556648336345}
   - component: {fileID: 1529802387942317314}
   - component: {fileID: 4357721386494994956}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Visual (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 6091761120078420189}
   - component: {fileID: 7568316637268621836}
   - component: {fileID: 7383202038240724331}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 1222125478521925563}
   - component: {fileID: 8762864174896411112}
   - component: {fileID: 7304527913986459906}
-  m_Layer: 12
+  m_Layer: 14
   m_Name: Visual (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -452,7 +452,8 @@ GameObject:
   - component: {fileID: 7902867957011330142}
   - component: {fileID: 198596059480404572}
   - component: {fileID: 5198600707654495657}
-  m_Layer: 12
+  - component: {fileID: 5410791455709365357}
+  m_Layer: 14
   m_Name: Enemy
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -467,7 +468,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7902867957011330140}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.64, y: 1.64, z: 3.27}
+  m_LocalPosition: {x: -1.64, y: 1.64, z: 3.271}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 6091761120078420189}
@@ -504,16 +505,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activateAfterTimer: 0.3
-  triggerDistance: 1
+  triggerDistance: 0.5
   OnEnterTriggerdEvent:
     m_PersistentCalls:
-      m_Calls: []
-  DelayedTriggerdEvent:
-    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7902867957011330140}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 5198600707654495657}
+        m_MethodName: TriggerShoot
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -522,6 +520,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  DelayedTriggerdEvent:
+    m_PersistentCalls:
+      m_Calls: []
   OnLeaveTriggerEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -537,8 +538,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfa079dfa0362af40b9d2f6dace6605b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 2.62
+  rotationSpeed: 1.51
   maxForward: 7.08
+  radius: 3
+  radiusVarianz: 1
+  fireSpeed: 3
+  RocketPrefab: {fileID: 2946248150165300448, guid: 01e1ceee8ff489442932c8708f781680,
+    type: 3}
+  playerLink: {fileID: 0}
+--- !u!136 &5410791455709365357
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7902867957011330140}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.47
+  m_Height: 6.04
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &552860945504348764
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -554,7 +575,7 @@ PrefabInstance:
     - target: {fileID: 6437204956091358133, guid: 8f7af51b671babc458d11702024dec66,
         type: 3}
       propertyPath: m_Layer
-      value: 12
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 8002564578433264038, guid: 8f7af51b671babc458d11702024dec66,
         type: 3}
