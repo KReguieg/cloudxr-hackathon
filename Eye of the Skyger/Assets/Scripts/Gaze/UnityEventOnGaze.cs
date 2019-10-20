@@ -7,7 +7,7 @@ public class UnityEventOnGaze : ObjectToGaze
 {
     [SerializeField] float activateAfterTimer = 0.3f;
     [SerializeField] float triggerDistance;
-    [SerializeField] UnityEvent OnEnterTriggerdEvent;
+    public UnityEvent OnEnterTriggerdEvent;
     [SerializeField] UnityEvent DelayedTriggerdEvent;
 
     [SerializeField] UnityEvent OnLeaveTriggerEvent;

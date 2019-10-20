@@ -13,16 +13,18 @@ public class SpawnCubes : MonoBehaviour
     [SerializeField] private int objCols;
     [SerializeField] private GameObject[] prefabToSpawn;
     [SerializeField] private Material targetMaterial;
+
     private float offset;
-    
+
     public bool randomXRot = true, randomYRot = true;
 
     public float minScale = 1, maxScale = 3;
 
-    private Vector3[] axis = new Vector3[]{Vector3.right, Vector3.up, Vector3.forward};
-    private float[] rotations = new float[]{0, 90, 180, 270};
+    private Vector3[] axis = new Vector3[] { Vector3.right, Vector3.up, Vector3.forward };
+    private float[] rotations = new float[] { 0, 90, 180, 270 };
 
-    private void Awake() {
+    private void Awake()
+    {
         objCols = Random.Range(minCols, maxCols);
         offset = size + positionOffset;
         for (int x = 0; x < objRows; x++)
@@ -57,7 +59,7 @@ public class SpawnCubes : MonoBehaviour
 
         transform.localScale = Vector3.one * Random.Range(minScale, maxScale);
 
-        SelectRandomAndMakeDestructable();
+        //SelectRandomAndMakeDestructable();
     }
 
     private void SelectRandomAndMakeDestructable()
@@ -70,9 +72,10 @@ public class SpawnCubes : MonoBehaviour
 
         int thirdOfLength = (int)Mathf.Floor(objCols * (1f / percentageOfDestructables));
 
-        var randomObjects = new GameObject[thirdOfLength]; 
+        var randomObjects = new GameObject[thirdOfLength];
 
-        for(int i = 0; i < randomObjects.Length; i++) {
+        for (int i = 0; i < randomObjects.Length; i++)
+        {
             // Take only from the latter part of the list - ignore the first i items.
             int take = Random.Range(i, nodes.Length);
             randomObjects[i] = nodes[take];
@@ -87,18 +90,20 @@ public class SpawnCubes : MonoBehaviour
         {
             randomObjects[i].GetComponentInChildren<MeshRenderer>().material = targetMaterial;
             randomObjects[i].AddComponent<Obstacle>();
+            ShootRocket ongaze = randomObjects[i].AddComponent<ShootRocket>();
+            GazeManager.Instance.Gazeables.Add(ongaze);
         }
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

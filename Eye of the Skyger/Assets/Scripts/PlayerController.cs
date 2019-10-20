@@ -32,12 +32,15 @@ public class PlayerController : MonoBehaviour
     OneShotter oneShotter;
     float multiplier = 1;
 
+    public static PlayerController instance;
+
     // Start is called before the first frame update
     void Awake()
     {
         rigid = GetComponent<Rigidbody>();
         collider = GetComponentInChildren<Collider>();
         oneShotter = GetComponentInChildren<OneShotter>();
+        instance = this;
     }
 
 

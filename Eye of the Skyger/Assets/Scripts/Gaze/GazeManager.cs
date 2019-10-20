@@ -14,8 +14,12 @@ public class GazeManager : MonoBehaviour
     [SerializeField] LayerMask layer;
 
     [SerializeField] public List<ObjectToGaze> Gazeables;
-    
+    public static GazeManager Instance;
 
+    private void Awake()
+    {
+        Instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +50,7 @@ public class GazeManager : MonoBehaviour
         foreach (GazeIndex index in GazePriority)
         {
             Ray GazeRay;
-            
+
             bool eye_focus;
             if (eye_callback_registered)
                 eye_focus = SRanipal_Eye.Focus(index, out GazeRay, out FocusInfo, 0, MaxDistance, layer, eyeData);
@@ -56,7 +60,7 @@ public class GazeManager : MonoBehaviour
             if (eye_focus)
             {
                 Gazeables.RemoveAll(item => item == null);
-                foreach(var gazeable in Gazeables)
+                foreach (var gazeable in Gazeables)
                 {
                     gazeable.GazeAt(FocusInfo.point);
                 }
