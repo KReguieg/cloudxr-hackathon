@@ -22,5 +22,6 @@ public class MainMenu : MonoBehaviour
             item.SetActive(true);
         }
         MainMenuItem.SetActive(false);
+        GameManager.singleton.gameStarted = true;
     }
 }
