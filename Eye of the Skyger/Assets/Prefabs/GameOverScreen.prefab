@@ -212,7 +212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9151301521621606290
 RectTransform:
   m_ObjectHideFlags: 0
@@ -305,6 +305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   place: {fileID: 5386895921109431449}
   highscore: {fileID: 6029247186047525593}
+  restartTimer: 7
 --- !u!1 &1653481974478716457
 GameObject:
   m_ObjectHideFlags: 0
