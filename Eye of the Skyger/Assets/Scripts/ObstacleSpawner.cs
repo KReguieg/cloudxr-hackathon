@@ -61,8 +61,9 @@ public class ObstacleSpawner : MonoBehaviour
                 spawnRotation *= Quaternion.AngleAxis(Random.Range(0, 360f), Vector3.up);
             if (randomRotationAroundXAxis)
                 spawnRotation *= Quaternion.AngleAxis(Random.Range(0, 360f), Vector3.forward);
-
-            GameObject newObject = Instantiate(obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)], spawnPos, spawnRotation, transform);
+            int prefabIndex = Random.Range(0, obstaclePrefabs.Length);
+            Debug.Log(this + " prefabs count: " + prefabIndex);
+            GameObject newObject = Instantiate(obstaclePrefabs[prefabIndex], spawnPos, spawnRotation, transform);
             if (randomScale)
             {
                 float desiredScale = Random.Range(minScale, maxScale);

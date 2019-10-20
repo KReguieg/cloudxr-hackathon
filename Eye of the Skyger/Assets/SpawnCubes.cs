@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnCubes : MonoBehaviour
 {
-    private const int percentageOfDestructables = 3;
+    [SerializeField] private int percentageOfDestructables = 3;
     [SerializeField] private int minCols = 6;
     [SerializeField] private int maxCols = 15;
     [SerializeField] private float positionOffset = 0.1f;
@@ -25,11 +25,14 @@ public class SpawnCubes : MonoBehaviour
         {
             for (int y = 0; y < objCols; y++)
             {
-                var position = new Vector3(transform.position.x + offset * x, transform.position.y + offset * y);
+                var position = new Vector3(transform.position.x + offset * x, transform.position.y + offset * y, transform.position.z);
+                // var position = new Vector3(offset * x, offset * y, 0f);
                 var g = Instantiate(prefabToSpawn[Random.Range(0, prefabToSpawn.Length)], position, Quaternion.identity);
+                g.transform.SetParent(transform, true);
+                //g.transform.localPosition = Vector3.zero;
                 g.transform.Rotate(axis[Random.Range(0, axis.Length)], rotations[(Random.Range(0, rotations.Length))]);
                 g.transform.localScale = Vector3.one * size;
-                g.transform.parent = transform;
+                //g.transform.parent = trsansform;
                 g.tag = "Obstacle";
                 g.AddComponent<BoxCollider>();
                 g.AddComponent<Rigidbody>();
@@ -43,18 +46,25 @@ public class SpawnCubes : MonoBehaviour
 
     private void SelectRandomAndMakeDestructable()
     {
-        GameObject[] Nodes = transform.GetComponentsInChildren<GameObject>();
-        var randomObjects = new GameObject[(int)Mathf.Floor(objCols * (1 / percentageOfDestructables))]; 
+        GameObject[] nodes = new GameObject[transform.childCount];
+        for (int i = 0; i < nodes.Length; i++)
+        {
+            nodes[i] = transform.GetChild(i).gameObject;
+        }
 
-        for(int i = 0; i < objCols; i++) {
+        int thirdOfLength = (int)Mathf.Floor(objCols * (1f / percentageOfDestructables));
+
+        var randomObjects = new GameObject[thirdOfLength]; 
+
+        for(int i = 0; i < randomObjects.Length; i++) {
             // Take only from the latter part of the list - ignore the first i items.
-            int take = Random.Range(i, Nodes.Length);
-            randomObjects[i] = Nodes[take];
+            int take = Random.Range(i, nodes.Length);
+            randomObjects[i] = nodes[take];
 
             // Swap our random choice to the beginning of the array,
             // so we don't choose it again on subsequent iterations.
-            Nodes[take] = Nodes[i];
-            Nodes[i] = randomObjects[i];
+            nodes[take] = nodes[i];
+            nodes[i] = randomObjects[i];
         }
 
         for (int i = 0; i < randomObjects.Length; i++)
