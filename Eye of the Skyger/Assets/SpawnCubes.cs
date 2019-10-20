@@ -36,7 +36,7 @@ public class SpawnCubes : MonoBehaviour
                 g.transform.localScale = Vector3.one * size;
                 //g.transform.parent = trsansform;
                 g.tag = "Obstacle";
-                g.AddComponent<BoxCollider>();
+                //g.AddComponent<BoxCollider>();
                 g.AddComponent<Rigidbody>();
                 g.GetComponent<Rigidbody>().useGravity = false;
                 g.GetComponent<Rigidbody>().collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;

@@ -151,7 +151,8 @@ public class PlayerController : MonoBehaviour
 
     public void SetMultiplier(float value)
     {
-        multipliererEffect.ForceStateNormalizedTime(value);
+        //multipliererEffect.SetFloat("time", value / 10);
+        multipliererEffect.Play(0, 0, Mathf.Clamp01(value / 10));
         Debug.Log(value);
     }
 
