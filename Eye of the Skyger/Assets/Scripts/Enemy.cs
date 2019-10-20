@@ -92,6 +92,8 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        if(other.collider.tag == "Rocket")
+            ScoreManager.Instance.IncreaseMultiplier(1);
         Destroy(gameObject);
     }
 }

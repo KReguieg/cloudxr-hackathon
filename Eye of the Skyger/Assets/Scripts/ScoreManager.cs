@@ -13,7 +13,7 @@ public class ScoreManager : MonoBehaviour
     float score;
     float multiplier = 1;
 
-    [SerializeField] float increaseSteps = 0.2f;
+    [SerializeField] float increaseSteps = 0.5f;
     [SerializeField] List<AudioClip> clips;
     [SerializeField] PlayerController ship;
     [SerializeField] GameObject WorldMultiplier;
@@ -57,6 +57,7 @@ public class ScoreManager : MonoBehaviour
 
         //scores.Sort();
         PlayerPrefs.SetInt("0", (int)score);
+        Place = 1;
         for (int i = 1; i < ScoreSaverCount; i++)
         {
             if ((int)score >= scores[i - 1])
@@ -88,13 +89,19 @@ public class ScoreManager : MonoBehaviour
     int oldMulti = 1;
     public void IncreaseMultiplier()
     {
+        IncreaseMultiplier(0);
+    }
+    public void IncreaseMultiplier(int amount = 0)
+    {
         multiplier += increaseSteps;
+        multiplier += amount;
+
         MultiplierText.text = multiplier.ToString("##.##");
         if ((int)multiplier > oldMulti)
         {
             GameObject worldMul = Instantiate(WorldMultiplier, ship.transform);
             worldMul.GetComponentInChildren<TextMeshProUGUI>().text = multiplier.ToString("x 00");
-            Destroy(worldMul,2);
+            Destroy(worldMul, 2);
             oldMulti = (int)multiplier;
             int index = Mathf.Clamp(oldMulti, 0, clips.Count - 1);
             source.PlayOneShot(clips[index]);
@@ -108,6 +115,7 @@ public class ScoreManager : MonoBehaviour
         oldMulti = (int)multiplier;
     }
 
+#if UNITY_EDITOR
     private void OnGUI()
     {
         if (GUILayout.Button("InC"))
@@ -115,4 +123,5 @@ public class ScoreManager : MonoBehaviour
             IncreaseMultiplier();
         }
     }
+#endif
 }

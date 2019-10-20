@@ -9,6 +9,7 @@ TagManager:
   - Obstacle
   - Collectible
   - Cloud
+  - Rocket
   layers:
   - Default
   - TransparentFX
