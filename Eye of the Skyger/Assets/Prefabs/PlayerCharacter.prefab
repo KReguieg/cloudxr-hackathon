@@ -341,8 +341,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0.4
-  MaxDistance: 5
+  MinDistance: 1
+  MaxDistance: 8
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -10115,8 +10115,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0.3
-  MaxDistance: 2
+  MinDistance: 0.5
+  MaxDistance: 4
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -10215,8 +10215,8 @@ MonoBehaviour:
     - {fileID: 8300000, guid: a6bd774a65a3f0b4981c23df05cbeef0, type: 3}
     objectWithAudioSource: {fileID: 6381195936053078324}
     volumeScale: 1
-    minPitchModifier: -0.1
-    maxPitchModifier: 0.2
+    minPitchModifier: -0.2
+    maxPitchModifier: 0.3
     startPitch: 0
     audioSource: {fileID: 0}
     mixerGroupIfNoGameObjectSelected: {fileID: 0}
@@ -10228,9 +10228,9 @@ MonoBehaviour:
     - {fileID: 8300000, guid: 607d4c56f3d09ff43ae0b67be32cbeec, type: 3}
     - {fileID: 8300000, guid: b54f15bef9b640140aaad1dd61cdc9a6, type: 3}
     objectWithAudioSource: {fileID: 6381195936053078324}
-    volumeScale: 1
-    minPitchModifier: -0.2
-    maxPitchModifier: 0.2
+    volumeScale: 0.7
+    minPitchModifier: -0.3
+    maxPitchModifier: 0.3
     startPitch: 0
     audioSource: {fileID: 0}
     mixerGroupIfNoGameObjectSelected: {fileID: 0}

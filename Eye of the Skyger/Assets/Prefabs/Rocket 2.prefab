@@ -67,6 +67,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 459482089961621733, guid: 72f11285eb008514e902d4b95a2f4e35,
+        type: 3}
+      propertyPath: explosionEffect
+      value: 
+      objectReference: {fileID: 7010298459457478716, guid: aa606d5634ce02a418d2b4e5f47a4a0d,
+        type: 3}
     - target: {fileID: 8343649618111343374, guid: 72f11285eb008514e902d4b95a2f4e35,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -105,7 +111,7 @@ PrefabInstance:
     - target: {fileID: 423672813068701102, guid: 72f11285eb008514e902d4b95a2f4e35,
         type: 3}
       propertyPath: MinDistance
-      value: 0.4
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 423672813068701102, guid: 72f11285eb008514e902d4b95a2f4e35,
         type: 3}
