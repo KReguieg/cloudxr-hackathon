@@ -10,6 +10,8 @@ public class EnemySpwner : MonoBehaviour
     [SerializeField] float spawnrate = 5f;
     [SerializeField] float spawnZ = -5f;
     [SerializeField] Transform PlayerTransform;
+    [SerializeField] Camera linkedCamera;
+    
     float timer = 0;
 
     void Update()
@@ -24,8 +26,10 @@ public class EnemySpwner : MonoBehaviour
 
     private void Spawn()
     {
-        GameObject newEnemy = Instantiate(EnemyPrefab, transform);
+        GameObject newEnemy = Instantiate(EnemyPrefab, linkedCamera.transform);
         newEnemy.transform.localPosition = Vector3.back * spawnZ;
+        
+        newEnemy.transform.SetParent(transform);
         Enemy enemy = newEnemy.GetComponent<Enemy>();
         enemy.playerLink = PlayerTransform;
         ObjectToGaze gaze = newEnemy.GetComponent<ObjectToGaze>();

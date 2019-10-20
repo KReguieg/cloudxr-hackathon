@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
-    [SerializeField] float startSpeed = 2;
+    public float startSpeed = 2;
     [SerializeField] float looseFocusAfterTime = 0.25f;
     public Transform target;
     Rigidbody rigid;
@@ -35,9 +35,14 @@ public class Rocket : MonoBehaviour
         speed += acceleration * Time.deltaTime;
         if (timer <= looseFocusAfterTime)
         {
-            lastDirection = target.position - transform.position;
-            rigid.MovePosition(Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime));
-            rigid.MoveRotation(Quaternion.LookRotation(target.position - transform.position));
+            if(target != null){
+                lastDirection = target.position - transform.position;
+            }else
+            {
+                lastDirection = transform.forward;
+            }
+            rigid.MovePosition(Vector3.MoveTowards(transform.position, transform.position + lastDirection, speed * Time.deltaTime));
+            rigid.MoveRotation(Quaternion.LookRotation(lastDirection));
         }
         else
             rigid.MovePosition(Vector3.MoveTowards(transform.position, transform.position + lastDirection.normalized, speed * Time.deltaTime));
