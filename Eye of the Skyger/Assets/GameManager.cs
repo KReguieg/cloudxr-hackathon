@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     public float gameTimer; // time since beginning of game (since score began counting)
     public UnityEvent CalcScore;
-    
+    public bool gameStarted = false;
 
 
     // Start is called before the first frame update
@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         singleton = this;
     }
 
-    
+
 
     public void PrepareGameOver()
     {
@@ -64,6 +64,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (!gameStarted)
+            return;
         gameTimer += Time.deltaTime;
 
         if (Input.GetKeyDown(KeyCode.G))
