@@ -721,7 +721,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &417936769
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -842,7 +842,7 @@ MonoBehaviour:
   EnemyPrefab: {fileID: 7902867957011330140, guid: cb6e9ed9815b57444b54e650ca0d94f0,
     type: 3}
   spawnrate: 2
-  spawnZ: -5
+  spawnZ: -2
   PlayerTransform: {fileID: 1809815486}
 --- !u!1 &472684152
 GameObject:
@@ -1325,6 +1325,13 @@ MonoBehaviour:
   targetTime: 0
   rocketCount: 0
   rocketPrefab: {fileID: 0}
+  StopSpawnersEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  GameOverEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  gameOver: 0
 --- !u!4 &968806746
 Transform:
   m_ObjectHideFlags: 0
@@ -2603,6 +2610,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObstacleSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 1187137992964441525, guid: b1158f56fe507694ca1a34bed2901269,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1187137992964441522, guid: b1158f56fe507694ca1a34bed2901269,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2732,5 +2744,11 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5328351}
+    - target: {fileID: 6214442247711220186, guid: fd5af5acf593c4647821fbbcbcf1d3ec,
+        type: 3}
+      propertyPath: rocketPrefab
+      value: 
+      objectReference: {fileID: 2946248150165300448, guid: 01e1ceee8ff489442932c8708f781680,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd5af5acf593c4647821fbbcbcf1d3ec, type: 3}

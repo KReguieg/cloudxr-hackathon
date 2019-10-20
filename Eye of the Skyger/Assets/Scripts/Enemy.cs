@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] float fireSpeed = 3;
     [SerializeField] GameObject RocketPrefab;
     public Transform playerLink;
+    new Collider collider;
 
     float startOffset;
     float forward;
@@ -20,6 +21,9 @@ public class Enemy : MonoBehaviour
         startOffset = Random.value * Mathf.PI * 2;
         radius += Random.value * radiusVarianz - radiusVarianz / 2;
         rotationSpeed += Random.value * 1f - 0.5f;
+        if (Random.value <= 0.5f)
+            rotationSpeed *= -1;
+        collider = GetComponent<Collider>();
     }
 
     void Update()
@@ -33,8 +37,17 @@ public class Enemy : MonoBehaviour
         if (shootTimer >= fireSpeed)
         {
             shootTimer = 0;
-            Instantiate(RocketPrefab);
+            GameObject rocketGO = Instantiate(RocketPrefab);
+            rocketGO.transform.position = transform.position;
+            Rocket rocket = rocketGO.GetComponent<Rocket>();
+            rocket.target = playerLink;
+            Physics.IgnoreCollision(collider, rocketGO.GetComponentInChildren<Collider>());
         }
+    }
+
+    public void TriggerShoot()
+    {
+        playerLink.GetComponentInChildren<PlayerController>().Shoot(transform);
     }
 
     private void OnCollisionEnter(Collision other)

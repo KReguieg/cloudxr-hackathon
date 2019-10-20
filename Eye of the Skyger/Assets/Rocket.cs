@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
-    public Obstacle target;
+    public Transform target;
     Rigidbody rigid;
     public float forceMultiplier;
 
@@ -26,20 +26,17 @@ public class Rocket : MonoBehaviour
     {
         speed += acceleration * Time.deltaTime;
 
-        rigid.MovePosition(Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime));
+        rigid.MovePosition(Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime));
 
-        rigid.MoveRotation(Quaternion.LookRotation(target.transform.position));
+        rigid.MoveRotation(Quaternion.LookRotation(transform.position - target.position));
         //rigid.AddForce(transform.forward * forceMultiplier, ForceMode.Acceleration);  
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Obstacle"))
-        {
-            Explode();
-            //Destroy(collision.collider.gameObject);
-            Destroy(gameObject);
-        }
+        Explode();
+        //Destroy(collision.collider.gameObject);
+        Destroy(gameObject);
     }
 
     private void Explode()
