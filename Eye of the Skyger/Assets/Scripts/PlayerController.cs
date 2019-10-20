@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    
+
     Rigidbody rigid;
 
     //float speed;
@@ -23,12 +23,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform target;
     [SerializeField] GameObject rocketPrefab;
     [SerializeField] GameObject LockOnPrefab;
+    [SerializeField] Animator multipliererEffect;
 
     public float cooldownDuration;
     float cooldown;
     new Collider collider;
 
     OneShotter oneShotter;
+    float multiplier = 1;
 
     // Start is called before the first frame update
     void Awake()
@@ -87,6 +89,8 @@ public class PlayerController : MonoBehaviour
             cooldown -= Time.deltaTime;
         else
             CheckTargets();
+
+        rigid.MovePosition(transform.position + UnityEngine.Random.insideUnitSphere * multiplier * 0.01f);
     }
 
     private void CheckTargets()
@@ -125,8 +129,8 @@ public class PlayerController : MonoBehaviour
         rocket.target = enemy;
         rocket.deepLock = true;
         Physics.IgnoreCollision(collider, rocketGO.GetComponentInChildren<Collider>());
-        GameObject lockOn = Instantiate (LockOnPrefab, enemy);
-        Destroy(lockOn , 2);
+        GameObject lockOn = Instantiate(LockOnPrefab, enemy);
+        Destroy(lockOn, 2);
         oneShotter.PlaySound("RocketShoot");
     }
 
@@ -143,6 +147,12 @@ public class PlayerController : MonoBehaviour
 
             oneShotter.PlaySound("ObstacleCollision");
         }
+    }
+
+    public void SetMultiplier(float value)
+    {
+        multipliererEffect.ForceStateNormalizedTime(value);
+        Debug.Log(value);
     }
 
 }

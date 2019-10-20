@@ -53,6 +53,7 @@ public class ObstacleSpawner : MonoBehaviour
 
             Vector3 spawnPos = Random.insideUnitCircle.normalized;
             spawnPos *= Random.Range(minSpawnRadius, maxSpawnRadius);
+            spawnPos += transform.position;
             spawnPos += new Vector3(0, 0, spawnDistance);
 
             Quaternion spawnRotation = Quaternion.identity;
