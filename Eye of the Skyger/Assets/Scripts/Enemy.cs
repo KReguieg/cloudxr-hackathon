@@ -10,6 +10,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] float radiusVarianz = 1;
     [SerializeField] float fireSpeed = 3;
     [SerializeField] GameObject RocketPrefab;
+    [SerializeField] float maxPitchAngle = 50;
+    [SerializeField] float maxRollAngle = 80;
+    [SerializeField] float tiltingSpeed = 200;
     public Transform playerLink;
     new Collider collider;
 
@@ -18,8 +21,8 @@ public class Enemy : MonoBehaviour
     float shootTimer = 0;
     private float rocketSpeed = 1;
     Vector3 startPosition;
-
-    
+    Rigidbody rigid;
+    Vector3 lastPosition;
     void Start()
     {
         startOffset = Random.value * Mathf.PI * 2;
@@ -28,33 +31,53 @@ public class Enemy : MonoBehaviour
         if (Random.value <= 0.5f)
             rotationSpeed *= -1;
         collider = GetComponent<Collider>();
+        rigid = GetComponent<Rigidbody>();
         startPosition = transform.position;
+        SetPOsition();
+    }
+
+    void SetPOsition()
+    {
+        lastPosition = transform.position;
+        transform.position = startPosition + new Vector3(Mathf.Sin(Time.time * rotationSpeed + startOffset) * radius,
+                                                         Mathf.Cos(Time.time * rotationSpeed + startOffset) * radius, forward);
+
     }
 
     void Update()
     {
         if (forward < maxForward)
             forward += Time.deltaTime * 2;
-        transform.position = startPosition + new Vector3(Mathf.Sin(Time.time * rotationSpeed + startOffset) * radius,
-                                                        Mathf.Cos(Time.time * rotationSpeed + startOffset) * radius, forward);
-
+        SetPOsition();
         shootTimer += Time.deltaTime;
         if (shootTimer >= fireSpeed)
         {
             shootTimer = 0;
             GameObject rocketGO = Instantiate(RocketPrefab);
-            
+
             rocketGO.transform.position = transform.position;
             Rocket rocket = rocketGO.GetComponent<Rocket>();
             rocket.target = playerLink;
             rocket.startSpeed = rocketSpeed;
             Physics.IgnoreCollision(collider, rocketGO.GetComponentInChildren<Collider>());
         }
+        Rotation();
     }
 
     public void TriggerShoot()
     {
         playerLink.GetComponentInChildren<PlayerController>().Shoot(transform);
+    }
+    void Rotation()
+    {
+        Vector3 direction = transform.position - lastPosition;
+        if (direction.x != 0)
+        {
+            rigid.MoveRotation(Quaternion.RotateTowards(
+                rigid.rotation,
+                Quaternion.Euler(-direction.normalized.y * maxPitchAngle, 0, -direction.normalized.x * maxRollAngle),
+                tiltingSpeed * Time.deltaTime));
+        }
     }
 
     private void OnCollisionEnter(Collision other)

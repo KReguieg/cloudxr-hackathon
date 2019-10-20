@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     public GameObject visual;
     [SerializeField] Transform target;
     [SerializeField] GameObject rocketPrefab;
+    [SerializeField] GameObject LockOnPrefab;
 
     public float cooldownDuration;
     float cooldown;
@@ -124,7 +125,8 @@ public class PlayerController : MonoBehaviour
         rocket.target = enemy;
         rocket.deepLock = true;
         Physics.IgnoreCollision(collider, rocketGO.GetComponentInChildren<Collider>());
-
+        GameObject lockOn = Instantiate (LockOnPrefab, enemy);
+        Destroy(lockOn , 2);
         oneShotter.PlaySound("RocketShoot");
     }
 

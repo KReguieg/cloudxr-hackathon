@@ -229,6 +229,9 @@ MonoBehaviour:
   fireSpeed: 3
   RocketPrefab: {fileID: 2946248150165300448, guid: 01e1ceee8ff489442932c8708f781680,
     type: 3}
+  maxPitchAngle: 30.8
+  maxRollAngle: 54.3
+  tiltingSpeed: 200
   playerLink: {fileID: 0}
 --- !u!65 &7817827061184988827
 BoxCollider:
