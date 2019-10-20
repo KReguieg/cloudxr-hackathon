@@ -34,6 +34,14 @@ public class Rocket : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.collider.CompareTag("Obstacle"))
+        {
+            for (int i = 0; i < collision.transform.parent.childCount; i++)
+            {
+                collision.transform.GetComponentInChildren<Transform>().gameObject.layer = LayerMask.NameToLayer("Default");
+            }
+            collision.transform.parent.gameObject.layer = LayerMask.NameToLayer("Default");
+        }
         Explode();
         //Destroy(collision.collider.gameObject);
         Destroy(gameObject);

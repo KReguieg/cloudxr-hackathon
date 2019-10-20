@@ -9197,12 +9197,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5888ebeed364618bbf9bab00dc2c89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minCols: 6
+  maxCols: 15
+  positionOffset: 0.1
   size: 2.5
   objRows: 1
   objCols: 3
   prefabToSpawn:
   - {fileID: 1711362145987164996, guid: 2f3e7967ed1d97343ba001a03e1a8fad, type: 3}
   - {fileID: 8228146673407567683, guid: ebf98678b22d24e06b4fe62f1e47a23e, type: 3}
+  - {fileID: 7205926528914389069, guid: 2489a265eaf74413ba0c9eec6078f80b, type: 3}
+  targetMaterial: {fileID: 2100000, guid: 5b59e98c9d3844144a95f7949adfde5b, type: 2}
 --- !u!1 &8385627644027862143
 GameObject:
   m_ObjectHideFlags: 0

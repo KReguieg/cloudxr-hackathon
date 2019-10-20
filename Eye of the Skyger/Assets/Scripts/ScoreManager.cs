@@ -22,6 +22,13 @@ public class ScoreManager : MonoBehaviour
             return instance;
         }
     }
+    public float Score
+    {
+        get {
+            return score;
+        }
+    }
+
     private void Awake() {
         if (instance != null)
             return;
