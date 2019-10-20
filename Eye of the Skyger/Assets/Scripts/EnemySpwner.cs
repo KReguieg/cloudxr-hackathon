@@ -30,6 +30,7 @@ public class EnemySpwner : MonoBehaviour
         newEnemy.transform.localPosition = Vector3.back * spawnZ;
         
         newEnemy.transform.SetParent(transform);
+        
         Enemy enemy = newEnemy.GetComponent<Enemy>();
         enemy.playerLink = PlayerTransform;
         ObjectToGaze gaze = newEnemy.GetComponent<ObjectToGaze>();
