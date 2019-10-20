@@ -15,6 +15,8 @@ public class SpawnCubes : MonoBehaviour
     [SerializeField] private Material targetMaterial;
     private float offset;
 
+    public float minScale = 1, maxScale = 3;
+
     private Vector3[] axis = new Vector3[]{Vector3.right, Vector3.up, Vector3.forward};
     private float[] rotations = new float[]{0, 90, 180, 270};
 
@@ -41,6 +43,15 @@ public class SpawnCubes : MonoBehaviour
                 g.AddComponent<MovingObject>();
             }
         }
+
+        Quaternion spawnRotation = Quaternion.identity;
+
+        spawnRotation *= Quaternion.AngleAxis(Random.Range(0, 360f), Vector3.up);
+        spawnRotation *= Quaternion.AngleAxis(Random.Range(0, 360f), Vector3.forward);
+        transform.rotation = spawnRotation;
+
+        transform.localScale = Vector3.one * Random.Range(minScale, maxScale);
+
         SelectRandomAndMakeDestructable();
     }
 
