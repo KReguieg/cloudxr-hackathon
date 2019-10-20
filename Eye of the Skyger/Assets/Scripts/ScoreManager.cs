@@ -15,7 +15,7 @@ public class ScoreManager : MonoBehaviour
 
     [SerializeField] float increaseSteps = 0.2f;
     [SerializeField] List<AudioClip> clips;
-    [SerializeField] Transform ship;
+    [SerializeField] PlayerController ship;
     [SerializeField] GameObject WorldMultiplier;
     AudioSource source;
 
@@ -58,12 +58,13 @@ public class ScoreManager : MonoBehaviour
         MultiplierText.text = multiplier.ToString("##.##");
         if ((int)multiplier > oldMulti)
         {
-            GameObject worldMul = Instantiate(WorldMultiplier, ship);
+            GameObject worldMul = Instantiate(WorldMultiplier, ship.transform);
             worldMul.GetComponentInChildren<TextMeshProUGUI>().text = multiplier.ToString("x 00");
             Destroy(worldMul,2);
             oldMulti = (int)multiplier;
             int index = Mathf.Clamp(oldMulti, 0, clips.Count - 1);
             source.PlayOneShot(clips[index]);
+            ship.SetMultiplier(multiplier);
         }
     }
 

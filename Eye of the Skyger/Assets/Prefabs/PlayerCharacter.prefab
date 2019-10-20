@@ -340,6 +340,7 @@ GameObject:
   - component: {fileID: 6214442247711220167}
   - component: {fileID: 6214442247711220187}
   - component: {fileID: 6214442247711220186}
+  - component: {fileID: 449770330678152937}
   m_Layer: 12
   m_Name: PlayerCharacter
   m_TagString: Player
@@ -407,6 +408,25 @@ MonoBehaviour:
   rocketPrefab: {fileID: 0}
   LockOnPrefab: {fileID: 0}
   cooldownDuration: 0.5
+--- !u!95 &449770330678152937
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6214442247711220185}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: edc36477349be4a40976b28d298837c6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6296171189620384440
 GameObject:
   m_ObjectHideFlags: 0
