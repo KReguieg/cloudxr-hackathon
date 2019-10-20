@@ -45,8 +45,11 @@ public class ScoreManager : MonoBehaviour
 
     void Update()
     {
-        score += Time.deltaTime * multiplier * 100;
-        ScoreText.text = score.ToString("###,###,###");
+        if (!GameManager.singleton.gameOver)
+        {
+            score += Time.deltaTime * multiplier * 100;
+            ScoreText.text = score.ToString("###,###,###");
+        }
     }
     int oldMulti = 1;
     public void IncreaseMultiplier()

@@ -20,8 +20,12 @@ public class GameManager : MonoBehaviour
     public Rocket rocketPrefab;
 
     [HideInInspector]
-    public UnityEvent StopSpawnersEvent, GameOverEvent;
+    public UnityEvent StopSpawnersEvent, GameOverEvent, StopEnemySpawnersEvent;
     public bool gameOver;
+
+    public float gameTimer; // time since beginning of game (since score began counting)
+
+    
 
 
     // Start is called before the first frame update
@@ -29,6 +33,8 @@ public class GameManager : MonoBehaviour
     {
         singleton = this;
     }
+
+    
 
     public void PrepareGameOver()
     {
@@ -47,15 +53,24 @@ public class GameManager : MonoBehaviour
             counter++;
         }*/
 
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForSeconds(13f);
+        StopEnemySpawnersEvent.Invoke();
+
+        yield return new WaitForSeconds(5f);
         gameOver = true;
         GameOverEvent.Invoke();
     }
 
     private void Update()
     {
+        gameTimer += Time.deltaTime;
+
         if (Input.GetKeyDown(KeyCode.G))
             PrepareGameOver();
+
+        if (gameTimer > 120f)
+            PrepareGameOver();
+
     }
 
 }
