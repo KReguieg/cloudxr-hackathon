@@ -38,6 +38,7 @@ public class Enemy : MonoBehaviour
         {
             shootTimer = 0;
             GameObject rocketGO = Instantiate(RocketPrefab);
+            
             rocketGO.transform.position = transform.position;
             Rocket rocket = rocketGO.GetComponent<Rocket>();
             rocket.target = playerLink;

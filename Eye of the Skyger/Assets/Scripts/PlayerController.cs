@@ -27,11 +27,14 @@ public class PlayerController : MonoBehaviour
     float cooldown;
     new Collider collider;
 
+    OneShotter oneShotter;
+
     // Start is called before the first frame update
     void Awake()
     {
         rigid = GetComponent<Rigidbody>();
         collider = GetComponentInChildren<Collider>();
+        oneShotter = GetComponentInChildren<OneShotter>();
     }
 
 
@@ -119,7 +122,10 @@ public class PlayerController : MonoBehaviour
         rocketGO.transform.position = transform.position;
         Rocket rocket = rocketGO.GetComponent<Rocket>();
         rocket.target = enemy;
+        rocket.deepLock = true;
         Physics.IgnoreCollision(collider, rocketGO.GetComponentInChildren<Collider>());
+
+        oneShotter.PlaySound("RocketShoot");
     }
 
     private void OnTriggerExit(Collider other)
@@ -132,6 +138,8 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Obstacle")
         {
             ScoreManager.Instance.ResetMultiplier();
+
+            oneShotter.PlaySound("ObstacleCollision");
         }
     }
 
