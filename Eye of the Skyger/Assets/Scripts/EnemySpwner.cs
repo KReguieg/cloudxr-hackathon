@@ -13,14 +13,30 @@ public class EnemySpwner : MonoBehaviour
     [SerializeField] Camera linkedCamera;
     
     float timer = 0;
+    bool spawning = true;
+
+    public float initialStartDelay = 45f;
+
+    private void Start()
+    {
+        GameManager.singleton.StopEnemySpawnersEvent.AddListener(StopSpawner);
+    }
+
+    void StopSpawner()
+    {
+
+    }
 
     void Update()
     {
-        timer += Time.deltaTime;
-        if (timer >= spawnrate)
+        if (spawning && GameManager.singleton.gameTimer > initialStartDelay)
         {
-            timer = 0;
-            Spawn();
+            timer += Time.deltaTime;
+            if (timer >= spawnrate)
+            {
+                timer = 0;
+                Spawn();
+            }
         }
     }
 
