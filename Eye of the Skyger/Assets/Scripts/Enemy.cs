@@ -23,6 +23,14 @@ public class Enemy : MonoBehaviour
     Vector3 startPosition;
     Rigidbody rigid;
     Vector3 lastPosition;
+
+    OneShotter oneShotter;
+
+    private void Awake()
+    {
+        oneShotter = GetComponentInChildren<OneShotter>();
+    }
+
     void Start()
     {
         startOffset = Random.value * Mathf.PI * 2;
@@ -60,6 +68,8 @@ public class Enemy : MonoBehaviour
             rocket.target = playerLink;
             rocket.startSpeed = rocketSpeed;
             Physics.IgnoreCollision(collider, rocketGO.GetComponentInChildren<Collider>());
+
+            oneShotter.PlaySound("ShootRocket");
         }
         Rotation();
     }
