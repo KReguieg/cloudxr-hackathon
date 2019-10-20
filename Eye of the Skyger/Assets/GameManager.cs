@@ -19,12 +19,12 @@ public class GameManager : MonoBehaviour
     public int rocketCount;
     public Rocket rocketPrefab;
 
-    [HideInInspector]
+    
     public UnityEvent StopSpawnersEvent, GameOverEvent, StopEnemySpawnersEvent;
     public bool gameOver, gameRunning;
 
     public float gameTimer; // time since beginning of game (since score began counting)
-
+    public UnityEvent CalcScore;
     
 
 
@@ -58,7 +58,8 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(5f);
         gameOver = true;
-        GameOverEvent.Invoke();
+        CalcScore?.Invoke();
+        GameOverEvent?.Invoke();
     }
 
     private void Update()
