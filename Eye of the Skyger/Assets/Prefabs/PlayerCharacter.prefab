@@ -10189,6 +10189,21 @@ MonoBehaviour:
     startPitch: 0
     audioSource: {fileID: 0}
     mixerGroupIfNoGameObjectSelected: {fileID: 0}
+  - name: LockOn
+    activateAutomaticallyAfter: -1
+    audioClips:
+    - {fileID: 8300000, guid: e89fc79154768f0418c6572bfd9b6ae7, type: 3}
+    - {fileID: 8300000, guid: 76427e4ec61e16b4dae4098e9b182012, type: 3}
+    - {fileID: 8300000, guid: a45857e4580776b4ea14aba8658be1a9, type: 3}
+    - {fileID: 8300000, guid: 81a027fc8753bb44fad2034e37159b55, type: 3}
+    - {fileID: 8300000, guid: 4433f5d973959cb4885d5bea3d8adbc8, type: 3}
+    objectWithAudioSource: {fileID: 6381195936053078324}
+    volumeScale: 1
+    minPitchModifier: -0.2
+    maxPitchModifier: 0.2
+    startPitch: 0
+    audioSource: {fileID: 0}
+    mixerGroupIfNoGameObjectSelected: {fileID: 0}
 --- !u!1 &7365314536410612082
 GameObject:
   m_ObjectHideFlags: 0

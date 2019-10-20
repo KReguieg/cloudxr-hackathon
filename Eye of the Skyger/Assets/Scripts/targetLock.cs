@@ -4,6 +4,6 @@ public class targetLock : MonoBehaviour
 {
     void Update()
     {
-        transform.LookAt(Camera.main.transform.position - transform.position);
+        transform.LookAt(Camera.main.transform.position);
     }
 }
