@@ -23,12 +23,18 @@ public class GameManager : MonoBehaviour
     public UnityEvent StopSpawnersEvent, GameOverEvent;
     public bool gameOver;
 
+    public float gameTimer; // time since beginning of game (since score began counting)
+
+    
+
 
     // Start is called before the first frame update
     void Awake()
     {
         singleton = this;
     }
+
+    
 
     public void PrepareGameOver()
     {
@@ -47,15 +53,21 @@ public class GameManager : MonoBehaviour
             counter++;
         }*/
 
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForSeconds(18f);
         gameOver = true;
         GameOverEvent.Invoke();
     }
 
     private void Update()
     {
+        gameTimer += Time.deltaTime;
+
         if (Input.GetKeyDown(KeyCode.G))
             PrepareGameOver();
+
+        if (gameTimer > 120f)
+            PrepareGameOver();
+
     }
 
 }
