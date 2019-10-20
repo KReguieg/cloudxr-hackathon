@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 843247700379493174, guid: 72f11285eb008514e902d4b95a2f4e35,
         type: 3}
       propertyPath: m_Name
-      value: Rocket 1
+      value: Rocket 2
       objectReference: {fileID: 0}
     - target: {fileID: 5008438147728650414, guid: 72f11285eb008514e902d4b95a2f4e35,
         type: 3}
@@ -67,6 +67,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8343649618111343374, guid: 72f11285eb008514e902d4b95a2f4e35,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fb775f30c139aaa45b320dbe12e0b0ea, type: 2}
+    - target: {fileID: 9156833923368679064, guid: 72f11285eb008514e902d4b95a2f4e35,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: fb775f30c139aaa45b320dbe12e0b0ea, type: 2}
+    - target: {fileID: 3456729195228412971, guid: 72f11285eb008514e902d4b95a2f4e35,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 202e9af70aa8c414dad24d84d3819505, type: 2}
+    - target: {fileID: 423672813068701102, guid: 72f11285eb008514e902d4b95a2f4e35,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c1866603198d35c458645680120ab496, type: 3}
     - target: {fileID: 423672813068701102, guid: 72f11285eb008514e902d4b95a2f4e35,
         type: 3}
       propertyPath: spreadCustomCurve.m_Curve.Array.data[0].time
@@ -75,7 +95,7 @@ PrefabInstance:
     - target: {fileID: 423672813068701102, guid: 72f11285eb008514e902d4b95a2f4e35,
         type: 3}
       propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
-      value: 0.036111113
+      value: 0.06388889
       objectReference: {fileID: 0}
     - target: {fileID: 423672813068701102, guid: 72f11285eb008514e902d4b95a2f4e35,
         type: 3}
@@ -87,5 +107,11 @@ PrefabInstance:
       propertyPath: MinDistance
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 423672813068701102, guid: 72f11285eb008514e902d4b95a2f4e35,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 8153742442663880449, guid: 489f54ae5b9e1194fa022eae56fc93ea,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72f11285eb008514e902d4b95a2f4e35, type: 3}

@@ -146,6 +146,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 977793366856774602, guid: 7b791a21aa6362d42bc4d17e59eb7951,
+        type: 3}
+      propertyPath: spreadCustomCurve.m_Curve.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 977793366856774602, guid: 7b791a21aa6362d42bc4d17e59eb7951,
+        type: 3}
+      propertyPath: spreadCustomCurve.m_Curve.Array.data[0].value
+      value: 0.044444446
+      objectReference: {fileID: 0}
+    - target: {fileID: 977793366856774602, guid: 7b791a21aa6362d42bc4d17e59eb7951,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 977793366856774602, guid: 7b791a21aa6362d42bc4d17e59eb7951,
+        type: 3}
+      propertyPath: Priority
+      value: 150
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b791a21aa6362d42bc4d17e59eb7951, type: 3}
 --- !u!4 &6242737299635736830 stripped

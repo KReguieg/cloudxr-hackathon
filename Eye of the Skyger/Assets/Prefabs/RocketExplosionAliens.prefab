@@ -4775,7 +4775,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4477432a5a08a476ea04ee7b72587843, type: 2}
+  - {fileID: 2100000, guid: 202e9af70aa8c414dad24d84d3819505, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -4832,7 +4832,7 @@ GameObject:
   - component: {fileID: 80302024003659081}
   - component: {fileID: 295591037330814310}
   m_Layer: 0
-  m_Name: RocketExplosion
+  m_Name: RocketExplosionAliens
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9745,8 +9745,8 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.0057468414
-      value: 0.1607666
+      time: 0
+      value: 0.03888889
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -9792,7 +9792,7 @@ MonoBehaviour:
   - name: 
     activateAutomaticallyAfter: 0
     audioClips:
-    - {fileID: 8300000, guid: 3e61387e9254a3041964949617c9e4da, type: 3}
+    - {fileID: 8300000, guid: 74abc9bccb19a3f4d8a0c8fb3403b1c8, type: 3}
     objectWithAudioSource: {fileID: 0}
     volumeScale: 0.5
     minPitchModifier: -0.1

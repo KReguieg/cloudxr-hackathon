@@ -241,7 +241,8 @@ AudioSource:
   m_GameObject: {fileID: 6152983954406470474}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -7753506268691273459, guid: 489f54ae5b9e1194fa022eae56fc93ea,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 3231dbe29b3e52142871e2120f6966e6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -252,8 +253,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0.1
-  MaxDistance: 500
+  MinDistance: 0.3
+  MaxDistance: 5
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -302,8 +303,8 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.0057468414
-      value: 0.1607666
+      time: 0
+      value: 0.041666668
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -404,6 +405,7 @@ MonoBehaviour:
   visual: {fileID: 7427176493598192603}
   target: {fileID: 0}
   rocketPrefab: {fileID: 0}
+  LockOnPrefab: {fileID: 0}
   cooldownDuration: 0.5
 --- !u!1 &6296171189620384440
 GameObject:
@@ -10000,8 +10002,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0.1
-  MaxDistance: 500
+  MinDistance: 0.3
+  MaxDistance: 2
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -10050,8 +10052,8 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.0057468414
-      value: 0.1607666
+      time: 0
+      value: 0.044444446
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -10114,7 +10116,7 @@ MonoBehaviour:
     - {fileID: 8300000, guid: b54f15bef9b640140aaad1dd61cdc9a6, type: 3}
     objectWithAudioSource: {fileID: 6381195936053078324}
     volumeScale: 1
-    minPitchModifier: -0.1
+    minPitchModifier: -0.2
     maxPitchModifier: 0.2
     startPitch: 0
     audioSource: {fileID: 0}
