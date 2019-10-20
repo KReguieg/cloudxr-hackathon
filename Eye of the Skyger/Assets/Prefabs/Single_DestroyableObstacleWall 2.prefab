@@ -54,6 +54,7 @@ MonoBehaviour:
   - {fileID: 1711362145987164996, guid: 2f3e7967ed1d97343ba001a03e1a8fad, type: 3}
   - {fileID: 8228146673407567683, guid: ebf98678b22d24e06b4fe62f1e47a23e, type: 3}
   - {fileID: 7205926528914389069, guid: 2489a265eaf74413ba0c9eec6078f80b, type: 3}
+  - {fileID: 7205926528914389069, guid: 4d88f63365caf474d8e30fa35dd5ac01, type: 3}
   targetMaterial: {fileID: 2100000, guid: 5b59e98c9d3844144a95f7949adfde5b, type: 2}
   randomXRot: 1
   randomYRot: 0
