@@ -5,7 +5,7 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] float rotationSpeed = 1f;
-    [SerializeField] float maxForward = 2;
+    [SerializeField] float maxForward = 4;
     [SerializeField] float radius = 3;
     [SerializeField] float radiusVarianz = 1;
     [SerializeField] float fireSpeed = 3;
@@ -16,6 +16,10 @@ public class Enemy : MonoBehaviour
     float startOffset;
     float forward;
     float shootTimer = 0;
+    private float rocketSpeed = 1;
+    Vector3 startPosition;
+
+    
     void Start()
     {
         startOffset = Random.value * Mathf.PI * 2;
@@ -24,14 +28,15 @@ public class Enemy : MonoBehaviour
         if (Random.value <= 0.5f)
             rotationSpeed *= -1;
         collider = GetComponent<Collider>();
+        startPosition = transform.position;
     }
 
     void Update()
     {
         if (forward < maxForward)
-            forward += 0.01f;
-        transform.position = new Vector3(Mathf.Sin(Time.time * rotationSpeed + startOffset) * radius,
-                                         Mathf.Cos(Time.time * rotationSpeed + startOffset) * radius, forward);
+            forward += Time.deltaTime * 2;
+        transform.position = startPosition + new Vector3(Mathf.Sin(Time.time * rotationSpeed + startOffset) * radius,
+                                                        Mathf.Cos(Time.time * rotationSpeed + startOffset) * radius, forward);
 
         shootTimer += Time.deltaTime;
         if (shootTimer >= fireSpeed)
@@ -42,6 +47,7 @@ public class Enemy : MonoBehaviour
             rocketGO.transform.position = transform.position;
             Rocket rocket = rocketGO.GetComponent<Rocket>();
             rocket.target = playerLink;
+            rocket.startSpeed = rocketSpeed;
             Physics.IgnoreCollision(collider, rocketGO.GetComponentInChildren<Collider>());
         }
     }
