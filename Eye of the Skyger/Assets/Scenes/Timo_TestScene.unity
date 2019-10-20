@@ -132,6 +132,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObstacleSpawner (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1187137992964441525, guid: b1158f56fe507694ca1a34bed2901269,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1187137992964441522, guid: b1158f56fe507694ca1a34bed2901269,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -500,6 +505,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ObstacleSpawner (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1187137992964441525, guid: b1158f56fe507694ca1a34bed2901269,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1187137992964441522, guid: b1158f56fe507694ca1a34bed2901269,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -808,6 +818,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   gameOver: 0
+  gameRunning: 0
   gameTimer: 0
 --- !u!4 &968806746
 Transform:
@@ -834,6 +845,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ObstacleSpawner (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187137992964441525, guid: b1158f56fe507694ca1a34bed2901269,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1187137992964441522, guid: b1158f56fe507694ca1a34bed2901269,
         type: 3}
@@ -1069,6 +1085,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ObstacleSpawner (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187137992964441525, guid: b1158f56fe507694ca1a34bed2901269,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1187137992964441522, guid: b1158f56fe507694ca1a34bed2901269,
         type: 3}
