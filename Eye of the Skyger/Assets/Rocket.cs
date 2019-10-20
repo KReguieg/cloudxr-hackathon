@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
-    public Obstacle target;
+    [SerializeField] float startSpeed = 2;
+    [SerializeField] float looseFocusAfterTime = 0.25f;
+    public Transform target;
     Rigidbody rigid;
     public float forceMultiplier;
 
@@ -14,21 +16,31 @@ public class Rocket : MonoBehaviour
     [SerializeField] private GameObject explosionEffect;
     [SerializeField] private float blastRadius;
     [SerializeField] private float explosionForce;
-
+    public bool deepLock; // for the Rockets from the player to always hit
+    float timer = 0;
+    Vector3 lastDirection;
     // Start is called before the first frame update
     void Awake()
     {
         rigid = GetComponent<Rigidbody>();
+        speed = startSpeed;
+        Destroy(gameObject, 10);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!deepLock)
+            timer += Time.deltaTime;
         speed += acceleration * Time.deltaTime;
-
-        rigid.MovePosition(Vector3.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime));
-
-        rigid.MoveRotation(Quaternion.LookRotation(target.transform.position));
+        if (timer <= looseFocusAfterTime)
+        {
+            lastDirection = target.position - transform.position;
+            rigid.MovePosition(Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime));
+            rigid.MoveRotation(Quaternion.LookRotation(target.position - transform.position));
+        }
+        else
+            rigid.MovePosition(Vector3.MoveTowards(transform.position, transform.position + lastDirection.normalized, speed * Time.deltaTime));
         //rigid.AddForce(transform.forward * forceMultiplier, ForceMode.Acceleration);  
     }
 
@@ -36,10 +48,15 @@ public class Rocket : MonoBehaviour
     {
         if (collision.collider.CompareTag("Obstacle"))
         {
-            Explode();
-            //Destroy(collision.collider.gameObject);
-            Destroy(gameObject);
+            for (int i = 0; i < collision.transform.parent.childCount; i++)
+            {
+                collision.transform.GetComponentInChildren<Transform>().gameObject.layer = LayerMask.NameToLayer("Default");
+            }
+            collision.transform.parent.gameObject.layer = LayerMask.NameToLayer("Default");
         }
+        Explode();
+        //Destroy(collision.collider.gameObject);
+        Destroy(gameObject);
     }
 
     private void Explode()

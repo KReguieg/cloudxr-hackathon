@@ -13,7 +13,7 @@ public class GazeManager : MonoBehaviour
     private bool eye_callback_registered;
     [SerializeField] LayerMask layer;
 
-    [SerializeField] public ObjectToGaze[] gazeables;
+    [SerializeField] public List<ObjectToGaze> Gazeables;
     
 
     // Start is called before the first frame update
@@ -55,7 +55,8 @@ public class GazeManager : MonoBehaviour
 
             if (eye_focus)
             {
-                foreach(var gazeable in gazeables)
+                Gazeables.RemoveAll(item => item == null);
+                foreach(var gazeable in Gazeables)
                 {
                     gazeable.GazeAt(FocusInfo.point);
                 }
