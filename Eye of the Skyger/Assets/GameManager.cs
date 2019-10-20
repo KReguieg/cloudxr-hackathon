@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]
     public UnityEvent StopSpawnersEvent, GameOverEvent, StopEnemySpawnersEvent;
-    public bool gameOver;
+    public bool gameOver, gameRunning;
 
     public float gameTimer; // time since beginning of game (since score began counting)
 
