@@ -5,7 +5,15 @@ using UnityEngine.Events;
 public class OnCollisionEvent : MonoBehaviour
 {
     [SerializeField] UnityEvent triggerdEvent;
-    private void OnCollisionEnter(Collision other) {
+    [SerializeField] bool useTrigger = false;
+    private void OnCollisionEnter(Collision other)
+    {
         triggerdEvent.Invoke();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(useTrigger)
+            triggerdEvent.Invoke();
     }
 }
