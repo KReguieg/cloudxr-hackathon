@@ -405,8 +405,11 @@ MonoBehaviour:
   targetPositionReachedTreshold: 0.1
   visual: {fileID: 7427176493598192603}
   target: {fileID: 0}
-  rocketPrefab: {fileID: 0}
-  LockOnPrefab: {fileID: 0}
+  rocketPrefab: {fileID: 2946248150165300448, guid: 01e1ceee8ff489442932c8708f781680,
+    type: 3}
+  LockOnPrefab: {fileID: 8727214603453561213, guid: f119d37f6252a73449788b82c32663a5,
+    type: 3}
+  multipliererEffect: {fileID: 449770330678152937}
   cooldownDuration: 0.5
 --- !u!95 &449770330678152937
 Animator:

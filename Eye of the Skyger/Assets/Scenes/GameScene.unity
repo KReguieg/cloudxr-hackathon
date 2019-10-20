@@ -846,6 +846,7 @@ MonoBehaviour:
   spawnZ: -2
   PlayerTransform: {fileID: 1809815486}
   linkedCamera: {fileID: 295530085}
+  initialStartDelay: 45
 --- !u!1 &472684152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,7 +1334,11 @@ MonoBehaviour:
   GameOverEvent:
     m_PersistentCalls:
       m_Calls: []
+  StopEnemySpawnersEvent:
+    m_PersistentCalls:
+      m_Calls: []
   gameOver: 0
+  gameTimer: 0
 --- !u!4 &968806746
 Transform:
   m_ObjectHideFlags: 0
@@ -2694,12 +2699,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eff2c8b01751bbd459d18226a8df682e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!95 &1775384592 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 449770330678152937, guid: fd5af5acf593c4647821fbbcbcf1d3ec,
-    type: 3}
-  m_PrefabInstance: {fileID: 6214442246315099636}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1809815486 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6214442247711220167, guid: fd5af5acf593c4647821fbbcbcf1d3ec,
@@ -3096,22 +3095,5 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 5328351}
-    - target: {fileID: 6214442247711220186, guid: fd5af5acf593c4647821fbbcbcf1d3ec,
-        type: 3}
-      propertyPath: rocketPrefab
-      value: 
-      objectReference: {fileID: 2946248150165300448, guid: 01e1ceee8ff489442932c8708f781680,
-        type: 3}
-    - target: {fileID: 6214442247711220186, guid: fd5af5acf593c4647821fbbcbcf1d3ec,
-        type: 3}
-      propertyPath: LockOnPrefab
-      value: 
-      objectReference: {fileID: 8727214603453561213, guid: f119d37f6252a73449788b82c32663a5,
-        type: 3}
-    - target: {fileID: 6214442247711220186, guid: fd5af5acf593c4647821fbbcbcf1d3ec,
-        type: 3}
-      propertyPath: multipliererEffect
-      value: 
-      objectReference: {fileID: 1775384592}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd5af5acf593c4647821fbbcbcf1d3ec, type: 3}
