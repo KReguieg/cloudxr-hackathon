@@ -130,6 +130,7 @@ public class PlayerController : MonoBehaviour
         rocket.deepLock = true;
         Physics.IgnoreCollision(collider, rocketGO.GetComponentInChildren<Collider>());
         GameObject lockOn = Instantiate(LockOnPrefab, enemy);
+        oneShotter.PlaySound("LockOn");
         Destroy(lockOn, 2);
         oneShotter.PlaySound("RocketShoot");
     }
