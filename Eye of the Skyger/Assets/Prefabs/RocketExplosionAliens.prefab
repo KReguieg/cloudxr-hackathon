@@ -9695,8 +9695,8 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0.2
-  MaxDistance: 2
+  MinDistance: 0.6
+  MaxDistance: 7
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -9794,7 +9794,7 @@ MonoBehaviour:
     audioClips:
     - {fileID: 8300000, guid: 74abc9bccb19a3f4d8a0c8fb3403b1c8, type: 3}
     objectWithAudioSource: {fileID: 0}
-    volumeScale: 0.5
+    volumeScale: 0.8
     minPitchModifier: -0.1
     maxPitchModifier: 0.2
     startPitch: 0
