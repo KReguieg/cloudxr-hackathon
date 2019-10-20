@@ -24,6 +24,7 @@ public class Rocket : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody>();
         speed = startSpeed;
+        Destroy(gameObject, 10);
     }
 
     // Update is called once per frame
