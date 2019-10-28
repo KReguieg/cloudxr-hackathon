@@ -151,6 +151,10 @@ public class PlayerController : MonoBehaviour
 
             oneShotter.PlaySound("ObstacleCollision");
         }
+        if (other.gameObject.tag == "Rakete")
+        {
+            ScoreManager.Instance.ResetMultiplier();
+        }
     }
 
     public void SetMultiplier(float value)
