@@ -5,9 +5,10 @@ using UnityEngine;
 public class GameOverScreen : MonoBehaviour
 {
     public GameObject enableOnGameOver;
+
     void Start()
     {
-        GameManager.singleton.GameOverEvent.AddListener(GameOver);
+        GameManager.instance.GameOverEvent.AddListener(GameOver);
     }
 
     // Update is called once per frame

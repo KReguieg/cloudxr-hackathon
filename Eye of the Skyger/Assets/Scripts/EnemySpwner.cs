@@ -19,7 +19,7 @@ public class EnemySpwner : MonoBehaviour
 
     private void Start()
     {
-        GameManager.singleton.StopEnemySpawnersEvent.AddListener(StopSpawner);
+        GameManager.instance.StopEnemySpawnersEvent.AddListener(StopSpawner);
     }
 
     void StopSpawner()
@@ -29,7 +29,7 @@ public class EnemySpwner : MonoBehaviour
 
     void Update()
     {
-        if (spawning && GameManager.singleton.gameTimer > initialStartDelay)
+        if (spawning && GameManager.instance.gameTimer > initialStartDelay)
         {
             timer += Time.deltaTime;
             if (timer >= spawnrate)

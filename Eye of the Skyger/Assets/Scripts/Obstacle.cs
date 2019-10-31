@@ -14,8 +14,8 @@ public class Obstacle : MovingObject
     // Update is called once per frame
     void Update()
     {
-        if (gazeTime > GameManager.singleton.targetTime)
-            GameManager.singleton.rocketTargets.Add(this);
+        if (gazeTime > GameManager.instance.targetTime)
+            GameManager.instance.rocketTargets.Add(this);
     }
 
     private void OnDestroy()
@@ -23,7 +23,7 @@ public class Obstacle : MovingObject
         if (homingRocket)
             Destroy(homingRocket.gameObject);
 
-        GameManager.singleton.rocketTargets.Remove(this);
+        GameManager.instance.rocketTargets.Remove(this);
     }
 
 }

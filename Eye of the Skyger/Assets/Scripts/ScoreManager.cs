@@ -36,10 +36,10 @@ public class ScoreManager : MonoBehaviour
 
     private void Start()
     {
-        GameManager.singleton.CalcScore.AddListener(GameEnd);
+        GameManager.instance.CalcScore.AddListener(GameEnd);
     }
     public int highscore;
-    public int Place;
+    public int place;
     List<int> scores;
     void GameEnd()
     {
@@ -57,11 +57,11 @@ public class ScoreManager : MonoBehaviour
 
         //scores.Sort();
         PlayerPrefs.SetInt("0", (int)score);
-        Place = 1;
+        place = 1;
         for (int i = 1; i < ScoreSaverCount; i++)
         {
             if ((int)score >= scores[i - 1])
-                Place++;
+                place++;
             PlayerPrefs.SetInt((i).ToString(), scores[i]);
 
         }
@@ -80,7 +80,7 @@ public class ScoreManager : MonoBehaviour
 
     void Update()
     {
-        if (!GameManager.singleton.gameOver)
+        if (!GameManager.instance.gameOver)
         {
             score += Time.deltaTime * multiplier * 100;
             ScoreText.text = score.ToString("###,###,###");

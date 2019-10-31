@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MovingObject : MonoBehaviour
@@ -13,13 +12,7 @@ public class MovingObject : MonoBehaviour
     void Start()
     {
         rigid = GetComponent<Rigidbody>();
-        rigid.velocity = Vector3.back * (GameManager.singleton.playerSpeed + speed);
+        rigid.velocity = Vector3.back * (GameManager.instance.playerSpeed + speed);
         // rigid.velocity = new Vector3(0, 0, -GameManager.singleton.playerSpeed + speed);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

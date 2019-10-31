@@ -48,9 +48,9 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // fly away at gameOver
-        if (GameManager.singleton.gameOver)
+        if (GameManager.instance.gameOver)
         {
-            rigid.velocity = new Vector3(0, 0, GameManager.singleton.playerSpeed);
+            rigid.velocity = new Vector3(0, 0, GameManager.instance.playerSpeed);
             direction = Vector3.zero;
             rigid.MoveRotation(Quaternion.RotateTowards(rigid.rotation, Quaternion.identity, tiltingNormalizationSpeed * Time.deltaTime));
             return;
@@ -98,17 +98,17 @@ public class PlayerController : MonoBehaviour
 
     private void CheckTargets()
     {
-        if (GameManager.singleton.rocketTargets.Count > 0 && GameManager.singleton.rocketCount > 0)
+        if (GameManager.instance.rocketTargets.Count > 0 && GameManager.instance.rocketCount > 0)
         {
-            FireRocketAt(GameManager.singleton.rocketTargets[0]);
-            GameManager.singleton.rocketTargets.RemoveAt(0);
+            FireRocketAt(GameManager.instance.rocketTargets[0]);
+            GameManager.instance.rocketTargets.RemoveAt(0);
             cooldown = cooldownDuration;
         }
     }
 
     private void FireRocketAt(Obstacle rocketTarget)
     {
-        Rocket newRocket = Instantiate(GameManager.singleton.rocketPrefab, transform.position, Quaternion.identity);
+        Rocket newRocket = Instantiate(GameManager.instance.rocketPrefab, transform.position, Quaternion.identity);
         newRocket.target = rocketTarget.transform;
         rocketTarget.homingRocket = newRocket;
     }

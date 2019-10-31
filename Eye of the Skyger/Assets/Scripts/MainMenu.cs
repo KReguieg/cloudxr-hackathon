@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour
         }
         go = true;
         //M//ainMenuItem.SetActive(false);
-        GameManager.singleton.gameStarted = true;
+        GameManager.instance.gameStarted = true;
     }
 
     private void Update()

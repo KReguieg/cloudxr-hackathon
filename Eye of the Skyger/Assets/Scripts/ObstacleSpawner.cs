@@ -31,7 +31,7 @@ public class ObstacleSpawner : MonoBehaviour
     private void Start()
     {
         if (disableOnGameOver)
-            GameManager.singleton.StopSpawnersEvent.AddListener(StopSpawning);
+            GameManager.instance.StopSpawnersEvent.AddListener(StopSpawning);
     }
 
     // Start is called before the first frame update
@@ -47,7 +47,7 @@ public class ObstacleSpawner : MonoBehaviour
         
         if (timer >= spawnFrequency && spawning)
         {
-            float spawnDistance = GameManager.singleton.spawnDistance;
+            float spawnDistance = GameManager.instance.spawnDistance;
             if (overwriteSpawnDistance > 0)
                 spawnDistance = overwriteSpawnDistance;
 

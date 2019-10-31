@@ -7,14 +7,15 @@ using UnityEngine.SceneManagement;
 public class CopyPlaceAndHighscore : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI place;
-
     [SerializeField] TextMeshProUGUI highscore;
     [SerializeField] float restartTimer = 7;
     float timer;
+
+    
     // Start is called before the first frame update
     void Start()
     {
-        place.text = ScoreManager.Instance.Place.ToString();
+        place.text = ScoreManager.Instance.place.ToString();
         highscore.text = ScoreManager.Instance.highscore.ToString();
     }
 

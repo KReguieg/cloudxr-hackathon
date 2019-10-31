@@ -8,6 +8,6 @@ public class TestTargetAdder : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Obstacle"))
-            GameManager.singleton.rocketTargets.Add(other.GetComponent<Obstacle>());
+            GameManager.instance.rocketTargets.Add(other.GetComponent<Obstacle>());
     }
 }

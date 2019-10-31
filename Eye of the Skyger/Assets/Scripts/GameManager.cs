@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 public class GameManager : MonoBehaviour
 {
-    public static GameManager singleton;
+    public static GameManager instance;
 
     [Tooltip("Simulated Player Speed in m/s")]
     public float playerSpeed = 55.5f;
@@ -31,10 +35,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        singleton = this;
+        instance = this;
     }
-
-
 
     public void PrepareGameOver()
     {
@@ -44,15 +46,9 @@ public class GameManager : MonoBehaviour
 
     IEnumerator WaitForLastSpawn()
     {
-        int counter = 1;
-
-        /*for (int i = 0; i < 1000; i++)
-        {
-            yield return new WaitForSeconds(1);
-            Debug.Log("waited: " + counter);
-            counter++;
-        }*/
-
+        /*
+        HARD CODED TIME UNTIL THE LAST SPAWNED OBJECT HITS THE DEATH WALL
+         */
         yield return new WaitForSeconds(13f);
         StopEnemySpawnersEvent.Invoke();
 
@@ -65,15 +61,29 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (!gameStarted)
+        {
             return;
+        }
+
         gameTimer += Time.deltaTime;
-
-        if (Input.GetKeyDown(KeyCode.G))
-            PrepareGameOver();
-
         if (gameTimer > 120f)
+        {
             PrepareGameOver();
-
+        }
     }
-
 }
+
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(GameManager))]
+public class GameManagerInspector : Editor {
+    public override void OnInspectorGUI() {
+        base.OnInspectorGUI();
+        
+        if(GUILayout.Button("LOOOL"))
+        {
+            GameManager.instance.PrepareGameOver();
+        }
+    }
+}
+#endif

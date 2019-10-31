@@ -6,7 +6,9 @@ public class CopyTransfrom : MonoBehaviour
 {
     [SerializeField] Transform trackedTransform;
     Vector3 start;
-    private void Start() {
+    
+    private void Start()
+    {
         start = transform.position;
     }
 
@@ -14,6 +16,6 @@ public class CopyTransfrom : MonoBehaviour
     {
         Vector3 pos = start;
         pos.y += trackedTransform.position.y;
-         transform.position = pos;
+        transform.position = pos;
     }
 }
