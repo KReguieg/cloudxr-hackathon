@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class WindController : MonoBehaviour
 {
@@ -12,10 +10,14 @@ public class WindController : MonoBehaviour
 
     void Update()
     {
-        Vector3 look = linkedTransform.forward;
-        look.y = 0;
-        float angley = Mathf.Abs(Vector3.SignedAngle(look, Vector3.forward, Vector3.right));
-        leftDirection.volume = angleVolumeCurve.Evaluate(angley);
-        lightleftDirection.volume = lightAngleVolumeCurve.Evaluate(angley);
+        /* blend windsounds depending on
+        where is the linked transform looking in the horizontal axis */
+
+        Vector3 horizontalLook = linkedTransform.forward;
+        horizontalLook.y = 0;
+
+        float angleY = Vector3.Angle(horizontalLook, Vector3.forward);
+        leftDirection.volume = angleVolumeCurve.Evaluate(angleY);
+        lightleftDirection.volume = lightAngleVolumeCurve.Evaluate(angleY);
     }
 }
