@@ -13,6 +13,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] float maxPitchAngle = 50;
     [SerializeField] float maxRollAngle = 80;
     [SerializeField] float tiltingSpeed = 200;
+    [SerializeField] GameObject ExplosionEffect;
+    [SerializeField] GameObject ShipDeberis;
+    [SerializeField] float ExplosionForce = 10;
     public Transform playerLink;
     new Collider collider;
 
@@ -93,11 +96,20 @@ public class Enemy : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         Debug.Log(other.collider.tag);
-        if(other.collider.tag == "Rocket")
+        if (other.collider.tag == "Rocket")
         {
-            Debug.Log("inf");
+
             ScoreManager.Instance.IncreaseMultiplier(1);
         }
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        Destroy(Instantiate(ExplosionEffect, transform.position, Quaternion.identity), 2);
+        GameObject debris = Instantiate(ShipDeberis, transform.position, Quaternion.identity);
+        foreach (Rigidbody rigidbody in debris.GetComponentsInChildren<Rigidbody>())
+            rigidbody.AddExplosionForce(ExplosionForce, transform.position, 1);
+        Destroy(debris, 10);
     }
 }

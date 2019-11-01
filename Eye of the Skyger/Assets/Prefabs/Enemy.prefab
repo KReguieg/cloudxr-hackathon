@@ -5173,7 +5173,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7902867957011330114}
   - component: {fileID: 7902867957011330142}
-  - component: {fileID: 198596059480404572}
   - component: {fileID: 5198600707654495657}
   - component: {fileID: 7817827061184988827}
   m_Layer: 14
@@ -5217,40 +5216,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &198596059480404572
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7902867957011330140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca2dbdacdd0440648b2700832e1755f8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activateAfterTimer: 0.3
-  triggerDistance: 0.5
-  OnEnterTriggerdEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5198600707654495657}
-        m_MethodName: TriggerShoot
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  DelayedTriggerdEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  OnLeaveTriggerEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &5198600707654495657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5273,6 +5238,11 @@ MonoBehaviour:
   maxPitchAngle: 30.8
   maxRollAngle: 54.3
   tiltingSpeed: 200
+  ExplosionEffect: {fileID: 7010298459457478716, guid: aa606d5634ce02a418d2b4e5f47a4a0d,
+    type: 3}
+  ShipDeberis: {fileID: 3170625648686593431, guid: efc72504de1ba45408e5e703aac1004b,
+    type: 3}
+  ExplosionForce: 50
   playerLink: {fileID: 0}
 --- !u!65 &7817827061184988827
 BoxCollider:
@@ -5294,6 +5264,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6091761120078420189}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 06c832a60b9c1004a9f096513240dd73,
+        type: 3}
+      propertyPath: m_Name
+      value: EnemyShip
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 06c832a60b9c1004a9f096513240dd73,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5363,11 +5338,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: -53.380795
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 06c832a60b9c1004a9f096513240dd73,
-        type: 3}
-      propertyPath: m_Name
-      value: EnemyShip
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06c832a60b9c1004a9f096513240dd73, type: 3}

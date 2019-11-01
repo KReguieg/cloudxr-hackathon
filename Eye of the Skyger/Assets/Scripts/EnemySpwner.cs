@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class EnemySpwner : MonoBehaviour
 {
-    [SerializeField] GazeManager gazeManager;
     [SerializeField] GameObject EnemyPrefab;
     [SerializeField] float spawnrate = 5f;
     [SerializeField] float spawnZ = -5f;
@@ -49,7 +48,6 @@ public class EnemySpwner : MonoBehaviour
         
         Enemy enemy = newEnemy.GetComponent<Enemy>();
         enemy.playerLink = PlayerTransform;
-        ObjectToGaze gaze = newEnemy.GetComponent<ObjectToGaze>();
-        gazeManager.Gazeables.Add(gaze);
+        
     }
 }
