@@ -95,13 +95,15 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Debug.Log(other.collider.tag);
         if (other.collider.tag == "Rocket")
         {
-
             ScoreManager.Instance.IncreaseMultiplier(1);
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
+        else if(other.collider.tag == "Obstacle")
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnDestroy()
